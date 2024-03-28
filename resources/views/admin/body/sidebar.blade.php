@@ -1,18 +1,123 @@
 <!--sidebar wrapper -->
 <div class="sidebar-wrapper" data-simplebar="true">
+
+    {{-- Logo --}}
     <div class="sidebar-header">
         <div>
             <img src="{{ asset('backend/assets/images/logo-icon.png') }}" class="logo-icon" alt="logo icon">
         </div>
         <div>
-            <h4 class="logo-text">Rocker</h4>
+            <h4 class="logo-text">Admin</h4>
         </div>
         <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
         </div>
-     </div>
-    <!--navigation-->
+    </div>
+
+    {{-- Menu de Navegación --}}
     <ul class="metismenu" id="menu">
+
         <li>
+            <a href="{{ route('admin.dashboard') }}">
+                <div class="parent-icon"><i class='bx bx-home-alt'></i>
+                </div>
+                <div class="menu-title">Panel</div>
+            </a>
+        </li>
+
+
+        {{-- * UI Elements --}}
+        <li class="menu-label">UI Elements</li>
+        <li>
+            <a href="widgets.html">
+                <div class="parent-icon"><i class='bx bx-cookie'></i>
+                </div>
+                <div class="menu-title">Widgets</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">eCommerce</div>
+            </a>
+            <ul>
+                <li> <a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Products</a>
+                </li>
+                <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
+                </li>
+                <li> <a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>Add New Products</a>
+                </li>
+                <li> <a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>Orders</a>
+                </li>
+            </ul>
+        </li>
+
+        {{-- * Others --}}
+        <li class="menu-label">Others</li>
+        <li>
+            <a href="widgets.html">
+                <div class="parent-icon"><i class='bx bx-cookie'></i>
+                </div>
+                <div class="menu-title">Widgets</div>
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" class="has-arrow">
+                <div class="parent-icon"><i class='bx bx-cart'></i>
+                </div>
+                <div class="menu-title">eCommerce</div>
+            </a>
+            <ul>
+                <li> <a href="ecommerce-products.html"><i class='bx bx-radio-circle'></i>Products</a>
+                </li>
+                <li> <a href="ecommerce-products-details.html"><i class='bx bx-radio-circle'></i>Product Details</a>
+                </li>
+                <li> <a href="ecommerce-add-new-products.html"><i class='bx bx-radio-circle'></i>Add New Products</a>
+                </li>
+                <li> <a href="ecommerce-orders.html"><i class='bx bx-radio-circle'></i>Orders</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class="bx bx-menu"></i>
+                </div>
+                <div class="menu-title">Menu Levels</div>
+            </a>
+            <ul>
+                <li> <a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Level One</a>
+                    <ul>
+                        <li> <a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Level Two</a>
+                            <ul>
+                                <li> <a href="javascript:;"><i class='bx bx-radio-circle'></i>Level Three</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="https://codervent.com/rocker/documentation/index.html" target="_blank">
+                <div class="parent-icon"><i class="bx bx-folder"></i>
+                </div>
+                <div class="menu-title">Documentation</div>
+            </a>
+        </li>
+        <li>
+            <a href="https://themeforest.net/user/codervent" target="_blank">
+                <div class="parent-icon"><i class="bx bx-support"></i>
+                </div>
+                <div class="menu-title">Support</div>
+            </a>
+        </li>
+
+
+
+
+
+        {{-- Dashboard con Submenus --}}
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-home-alt'></i>
                 </div>
@@ -26,8 +131,10 @@
                 <li> <a href="index3.html"><i class='bx bx-radio-circle'></i>Graphical</a>
                 </li>
             </ul>
-        </li>
-        <li>
+        </li> --}}
+
+        {{-- Application con Submenus --}}
+        {{-- <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class="bx bx-category"></i>
                 </div>
@@ -49,8 +156,10 @@
                 <li> <a href="app-fullcalender.html"><i class='bx bx-radio-circle'></i>Calendar</a>
                 </li>
             </ul>
-        </li>
-        <li class="menu-label">UI Elements</li>
+        </li> --}}
+
+        {{-- * UI Elements --}}
+        {{-- <li class="menu-label">UI Elements</li>
         <li>
             <a href="widgets.html">
                 <div class="parent-icon"><i class='bx bx-cookie'></i>
@@ -106,7 +215,8 @@
                 </li>
                 <li> <a href="component-paginations.html"><i class='bx bx-radio-circle'></i>Pagination</a>
                 </li>
-                <li> <a href="component-popovers-tooltips.html"><i class='bx bx-radio-circle'></i>Popovers & Tooltips</a>
+                <li> <a href="component-popovers-tooltips.html"><i class='bx bx-radio-circle'></i>Popovers &
+                        Tooltips</a>
                 </li>
                 <li> <a href="component-progress-bars.html"><i class='bx bx-radio-circle'></i>Progress</a>
                 </li>
@@ -154,8 +264,10 @@
                 </div>
                 <div class="menu-title">Froala Editor</div>
             </a>
-        </li>
-        <li class="menu-label">Forms & Tables</li>
+        </li> --}}
+
+        {{-- * Forms & Tables --}}
+        {{-- <li class="menu-label">Forms & Tables</li>
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-message-square-edit'></i>
@@ -167,7 +279,8 @@
                 </li>
                 <li> <a href="form-input-group.html"><i class='bx bx-radio-circle'></i>Input Groups</a>
                 </li>
-                <li> <a href="form-radios-and-checkboxes.html"><i class='bx bx-radio-circle'></i>Radios & Checkboxes</a>
+                <li> <a href="form-radios-and-checkboxes.html"><i class='bx bx-radio-circle'></i>Radios &
+                        Checkboxes</a>
                 </li>
                 <li> <a href="form-layouts.html"><i class='bx bx-radio-circle'></i>Forms Layouts</a>
                 </li>
@@ -199,8 +312,10 @@
                 <li> <a href="table-datatable.html"><i class='bx bx-radio-circle'></i>Data Table</a>
                 </li>
             </ul>
-        </li>
-        <li class="menu-label">Pages</li>
+        </li> --}}
+        
+        {{-- * Pages --}}
+        {{-- <li class="menu-label">Pages</li>
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-lock"></i>
@@ -210,26 +325,38 @@
             <ul>
                 <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Basic</a>
                     <ul>
-                        <li><a href="auth-basic-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign In</a></li>
-                        <li><a href="auth-basic-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign Up</a></li>
-                        <li><a href="auth-basic-forgot-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                        <li><a href="auth-basic-reset-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Reset Password</a></li>
+                        <li><a href="auth-basic-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign
+                                In</a></li>
+                        <li><a href="auth-basic-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign
+                                Up</a></li>
+                        <li><a href="auth-basic-forgot-password.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Forgot Password</a></li>
+                        <li><a href="auth-basic-reset-password.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Reset Password</a></li>
                     </ul>
                 </li>
                 <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>Cover</a>
                     <ul>
-                        <li><a href="auth-cover-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign In</a></li>
-                        <li><a href="auth-cover-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign Up</a></li>
-                        <li><a href="auth-cover-forgot-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                        <li><a href="auth-cover-reset-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Reset Password</a></li>
+                        <li><a href="auth-cover-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign
+                                In</a></li>
+                        <li><a href="auth-cover-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign
+                                Up</a></li>
+                        <li><a href="auth-cover-forgot-password.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Forgot Password</a></li>
+                        <li><a href="auth-cover-reset-password.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Reset Password</a></li>
                     </ul>
                 </li>
                 <li><a class="has-arrow" href="javascript:;"><i class='bx bx-radio-circle'></i>With Header Footer</a>
                     <ul>
-                        <li><a href="auth-header-footer-signin.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign In</a></li>
-                        <li><a href="auth-header-footer-signup.html" target="_blank"><i class='bx bx-radio-circle'></i>Sign Up</a></li>
-                        <li><a href="auth-header-footer-forgot-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Forgot Password</a></li>
-                        <li><a href="auth-header-footer-reset-password.html" target="_blank"><i class='bx bx-radio-circle'></i>Reset Password</a></li>
+                        <li><a href="auth-header-footer-signin.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Sign In</a></li>
+                        <li><a href="auth-header-footer-signup.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Sign Up</a></li>
+                        <li><a href="auth-header-footer-forgot-password.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Forgot Password</a></li>
+                        <li><a href="auth-header-footer-reset-password.html" target="_blank"><i
+                                    class='bx bx-radio-circle'></i>Reset Password</a></li>
                     </ul>
                 </li>
             </ul>
@@ -259,7 +386,8 @@
                 </li>
                 <li> <a href="errors-500-error.html" target="_blank"><i class='bx bx-radio-circle'></i>500 Error</a>
                 </li>
-                <li> <a href="errors-coming-soon.html" target="_blank"><i class='bx bx-radio-circle'></i>Coming Soon</a>
+                <li> <a href="errors-coming-soon.html" target="_blank"><i class='bx bx-radio-circle'></i>Coming
+                        Soon</a>
                 </li>
                 <li> <a href="error-blank-page.html" target="_blank"><i class='bx bx-radio-circle'></i>Blank Page</a>
                 </li>
@@ -278,8 +406,10 @@
                 </div>
                 <div class="menu-title">Pricing</div>
             </a>
-        </li>
-        <li class="menu-label">Charts & Maps</li>
+        </li> --}}
+
+        {{-- * Charts & Maps --}}
+        {{-- <li class="menu-label">Charts & Maps</li>
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-line-chart"></i>
@@ -307,8 +437,10 @@
                 <li> <a href="map-vector-maps.html"><i class='bx bx-radio-circle'></i>Vector Maps</a>
                 </li>
             </ul>
-        </li>
-        <li class="menu-label">Others</li>
+        </li> --}}
+        
+        {{-- * Others --}}
+        {{-- <li class="menu-label">Others</li>
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class="bx bx-menu"></i>
@@ -341,8 +473,10 @@
                 </div>
                 <div class="menu-title">Support</div>
             </a>
-        </li>
+        </li> --}}
+
     </ul>
-    <!--end navigation-->
+    
+
 </div>
 <!--end sidebar wrapper -->
