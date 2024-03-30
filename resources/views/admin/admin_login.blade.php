@@ -75,8 +75,9 @@
                                                         type="email" 
                                                         placeholder="jhon@example.com"
                                                 >
+
                                                 @error('email')
-                                                    <span class="text-danger">
+                                                    <span class="text-danger" style="text-font-weight: lighter">
                                                         <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
@@ -88,6 +89,7 @@
                                                 <label for="inputChoosePassword" class="form-label">Contraseña</label>
 
                                                 <div class="input-group" id="show_hide_password">
+
                                                     <input class="form-control border-end-0 @error('password') is-invalid @enderror"
                                                         type="password"
                                                         id="password" 
@@ -100,13 +102,14 @@
                                                         <i class="bx bx-hide"></i>
                                                     </a>
 
-                                                    @error('password')
-                                                        <span class="text-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
-                                                    @enderror
-
                                                 </div>
+
+                                                @error('password')
+                                                    <br>
+                                                    <span class="text-danger" style="text-font-weight: lighter">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
 
                                             </div>
 
