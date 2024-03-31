@@ -1,0 +1,14 @@
+{
+	"files": [
+		{
+			"path": "resources/views/admin/admin_profile_view.blade.php",
+			"bookmarks": [
+				{
+					"line": 46,
+					"column": 54,
+					"label": "desplegar imagen de admin si no hay subir no_image.jpg"
+				}
+			]
+		}
+	]
+}

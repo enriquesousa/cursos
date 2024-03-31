@@ -39,18 +39,19 @@
             <div class="main-body">
                 <div class="row">
 
+                    {{-- Admin Profile Columna Izquierda--}}
                     <div class="col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="d-flex flex-column align-items-center text-center">
-                                    <img src="{{ asset('backend/assets/images/avatars/avatar-2.png') }}" alt="Admin"
+                                    <img src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Admin"
                                         class="rounded-circle p-1 bg-primary" width="110">
                                     <div class="mt-3">
-                                        <h4>John Doe</h4>
-                                        <p class="text-secondary mb-1">Full Stack Developer</p>
-                                        <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                                        <button class="btn btn-primary">Follow</button>
-                                        <button class="btn btn-outline-primary">Message</button>
+                                        <h4>{{ $profileData->name }}</h4>
+                                        <p class="text-secondary mb-1">{{ $profileData->username }}</p>
+                                        <p class="text-muted font-size-sm">{{ $profileData->email }}</p>
+                                        <button class="btn btn-primary">Seguir</button>
+                                        <button class="btn btn-outline-primary">Mensaje</button>
                                     </div>
                                 </div>
                                 <hr class="my-4" />
@@ -119,64 +120,100 @@
                         </div>
                     </div>
 
+
+                    {{-- Detalles del Admin Columna derecha --}}
                     <div class="col-lg-8">
                         
-                        {{-- Detalles del Admin --}}
                         <div class="card">
                             <div class="card-body">
+
+                                {{-- Nombre --}}
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Full Name</h6>
+                                        <h6 class="mb-0">Nombre</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="John Doe" />
+                                        <input name="name" type="text" class="form-control" value="{{ $profileData->name }}" />
                                     </div>
                                 </div>
+
+                                {{-- Nombre de usuario--}}
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
+                                        <h6 class="mb-0">Nombre Usuario</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="john@example.com" />
+                                        <input name="username" type="text" class="form-control" value="{{ $profileData->username }}" />
                                     </div>
                                 </div>
+
+                                {{-- Correo Electrónico --}}
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
+                                        <h6 class="mb-0">Correo Electrónico</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="(239) 816-9029" />
+                                        <input name="email" type="email" class="form-control" value="{{ $profileData->email }}" />
                                     </div>
                                 </div>
+
+                                {{-- Teléfono --}}
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Mobile</h6>
+                                        <h6 class="mb-0">Teléfono</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="(320) 380-4539" />
+                                        <input name="phone" type="text" class="form-control" value="{{ $profileData->phone }}" />
                                     </div>
                                 </div>
+
+                                {{-- Dirección --}}
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Address</h6>
+                                        <h6 class="mb-0">Dirección</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" value="Bay Area, San Francisco, CA" />
+                                        <input name="address" type="text" class="form-control" value="{{ $profileData->address }}" />
                                     </div>
                                 </div>
+
+                                {{-- Seleccionar Imagen --}}
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Imagen</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input name="photo" type="file" class="form-control" />
+                                    </div>
+                                </div>
+
+                                {{-- Desplegar Imagen --}}
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <img src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Admin"
+                                        class="rounded-circle p-1 bg-primary" width="80">
+                                    </div>
+                                </div>
+
+
+
+                                {{-- Botón Guardar --}}
                                 <div class="row">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="button" class="btn btn-primary px-4" value="Save Changes" />
+                                        <input type="button" class="btn btn-primary px-4" value="Guardar" />
                                     </div>
                                 </div>
+
                             </div>
                         </div>
 
                         {{-- Project Status --}}
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-sm-12">
-                                {{-- <div class="card">
+                                <div class="card">
                                     <div class="card-body">
                                         <h5 class="d-flex align-items-center mb-3">Project Status</h5>
                                         <p>Web Design</p>
@@ -205,9 +242,9 @@
                                                 aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <br>
                     </div>
