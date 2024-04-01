@@ -62,7 +62,7 @@ class AdminController extends Controller
         $data->save();
 
         $notification = array(
-            'message' => 'Imagen actualizada correctamente',
+            'message' => 'Datos de Administrador actualizados correctamente',
             'alert-type' => 'success'
         );
         return redirect()->back()->with($notification);

@@ -1,12 +1,12 @@
 {
 	"files": [
 		{
-			"path": "resources/views/admin/admin_profile_view.blade.php",
+			"path": "app/Http/Controllers/AdminController.php",
 			"bookmarks": [
 				{
-					"line": 46,
-					"column": 54,
-					"label": "desplegar imagen de admin si no hay subir no_image.jpg"
+					"line": 52,
+					"column": 22,
+					"label": "unlink image"
 				}
 			]
 		}
