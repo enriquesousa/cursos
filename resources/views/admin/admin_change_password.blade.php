@@ -132,7 +132,7 @@
 
                         <div class="card">
 
-                            <form action="{{ route('store.admin.profile') }}" method="POST"
+                            <form action="{{ route('update.admin.password') }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
 

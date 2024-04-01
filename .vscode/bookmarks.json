@@ -4,9 +4,14 @@
 			"path": "app/Http/Controllers/AdminController.php",
 			"bookmarks": [
 				{
-					"line": 52,
+					"line": 53,
 					"column": 22,
 					"label": "unlink image"
+				},
+				{
+					"line": 100,
+					"column": 17,
+					"label": "whereId metodo para modelo"
 				}
 			]
 		}
