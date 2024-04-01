@@ -128,128 +128,98 @@
                     <div class="col-lg-8">
                         
                         <div class="card">
-                            <div class="card-body">
 
-                                {{-- Nombre --}}
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Nombre</h6>
+                            <form action="{{ route('store.admin.profile') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+
+                                <div class="card-body">
+
+                                    {{-- Nombre --}}
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Nombre</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input name="name" type="text" class="form-control" value="{{ $profileData->name }}" />
+                                        </div>
                                     </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input name="name" type="text" class="form-control" value="{{ $profileData->name }}" />
+    
+                                    {{-- Nombre de usuario--}}
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Nombre Usuario</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input name="username" type="text" class="form-control" value="{{ $profileData->username }}" />
+                                        </div>
                                     </div>
+    
+                                    {{-- Correo Electrónico --}}
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Correo Electrónico</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input name="email" type="email" class="form-control" value="{{ $profileData->email }}" />
+                                        </div>
+                                    </div>
+    
+                                    {{-- Teléfono --}}
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Teléfono</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input name="phone" type="text" class="form-control" value="{{ $profileData->phone }}" />
+                                        </div>
+                                    </div>
+    
+                                    {{-- Dirección --}}
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Dirección</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input name="address" type="text" class="form-control" value="{{ $profileData->address }}" />
+                                        </div>
+                                    </div>
+    
+                                    {{-- Seleccionar Imagen --}}
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Imagen</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input name="photo" type="file" class="form-control" id="image"/>
+                                        </div>
+                                    </div>
+    
+                                    {{-- Desplegar Imagen de Perfil --}}
+                                    <div class="row mb-3">
+                                        <div class="col-sm-3">
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <img id="showImage" src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Admin"
+                                            class="rounded-circle p-1 bg-primary" width="80">
+                                        </div>
+                                    </div>
+    
+    
+    
+                                    {{-- Botón Guardar --}}
+                                    <div class="row">
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="submit" class="btn btn-primary px-4" value="Guardar" />
+                                        </div>
+                                    </div>
+    
                                 </div>
+                            </form>
 
-                                {{-- Nombre de usuario--}}
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Nombre Usuario</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input name="username" type="text" class="form-control" value="{{ $profileData->username }}" />
-                                    </div>
-                                </div>
-
-                                {{-- Correo Electrónico --}}
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Correo Electrónico</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input name="email" type="email" class="form-control" value="{{ $profileData->email }}" />
-                                    </div>
-                                </div>
-
-                                {{-- Teléfono --}}
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Teléfono</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input name="phone" type="text" class="form-control" value="{{ $profileData->phone }}" />
-                                    </div>
-                                </div>
-
-                                {{-- Dirección --}}
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Dirección</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input name="address" type="text" class="form-control" value="{{ $profileData->address }}" />
-                                    </div>
-                                </div>
-
-                                {{-- Seleccionar Imagen --}}
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Imagen</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input name="photo" type="file" class="form-control" id="image"/>
-                                    </div>
-                                </div>
-
-                                {{-- Desplegar Imagen de Perfil --}}
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <img id="showImage" src="{{ (!empty($profileData->photo)) ? url('upload/admin_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Admin"
-                                        class="rounded-circle p-1 bg-primary" width="80">
-                                    </div>
-                                </div>
-
-
-
-                                {{-- Botón Guardar --}}
-                                <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <input type="button" class="btn btn-primary px-4" value="Guardar" />
-                                    </div>
-                                </div>
-
-                            </div>
                         </div>
-
-                        {{-- Project Status --}}
-                        {{-- <div class="row">
-                            <div class="col-sm-12">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="d-flex align-items-center mb-3">Project Status</h5>
-                                        <p>Web Design</p>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
-                                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p>Website Markup</p>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 72%"
-                                                aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p>One Page</p>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 89%"
-                                                aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p>Mobile Template</p>
-                                        <div class="progress mb-3" style="height: 5px">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 55%"
-                                                aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <p>Backend API</p>
-                                        <div class="progress" style="height: 5px">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 66%"
-                                                aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --}}
-
                         <br>
+
                     </div>
 
                 </div>
