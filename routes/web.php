@@ -30,9 +30,10 @@ require __DIR__.'/auth.php';
 |--------------------------------------------------------------------------
 */
 
-// Admin Routes
+// Admin Route Login Page
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
+// Admin Routes
 Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
@@ -42,10 +43,13 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::post('/update/admin/password', [AdminController::class, 'UpdateAdminPassword'])->name('update.admin.password');
 });
 
+// Instructor Routes Login Page
+Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
+
 // Instructor Routes
 Route::middleware(['auth', 'roles:instructor'])->group(function () {
     Route::get('/instructor/dashboard', [InstructorController::class, 'InstructorDashboard'])->name('instructor.dashboard');
+    Route::get('/instructor/logout', [InstructorController::class, 'InstructorLogout'])->name('instructor.logout');
 });
 
-
-
+ 
