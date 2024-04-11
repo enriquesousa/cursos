@@ -8,7 +8,7 @@ class InstructorController extends Controller
 {
     // InstructorDashboard
     public function InstructorDashboard(){
-       return view('instructor.instructor_dashboard');
+       return view('instructor.index');
     }
 
     
