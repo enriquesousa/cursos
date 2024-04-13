@@ -10,7 +10,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -50,6 +50,8 @@ Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin']
 Route::middleware(['auth', 'roles:instructor'])->group(function () {
     Route::get('/instructor/dashboard', [InstructorController::class, 'InstructorDashboard'])->name('instructor.dashboard');
     Route::get('/instructor/logout', [InstructorController::class, 'InstructorLogout'])->name('instructor.logout');
+    Route::get('/instructor/profile', [InstructorController::class, 'InstructorProfile'])->name('instructor.profile');
+    Route::post('/store/instructor/profile', [InstructorController::class, 'StoreInstructorProfile'])->name('store.instructor.profile');
 });
 
  
