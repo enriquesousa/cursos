@@ -69,6 +69,44 @@ class InstructorController extends Controller
         return redirect()->back()->with($notification);
     }
 
+    // InstructorChangePassword
+    public function InstructorChangePassword(){
+        $id = Auth::user()->id;
+        $profileData = User::findOrFail($id);
+        return view('instructor.instructor_change_password',compact('profileData'));
+    }
+
+    // UpdateInstructorPassword
+    public function UpdateInstructorPassword(Request $request){
+
+        // Validación
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+        ]);
+
+        // Match The Old Password 
+        if (!Hash::check($request->old_password, auth::user()->password)) {
+
+            $notification = array(
+                    'message' => '¡La contraseña anterior no coincide!',
+                    'alert-type' => 'error'
+                );
+            return back()->with($notification);
+        }
+
+
+        //// Update The New Password 
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        $notification = array(
+            'message' => 'Se actualizo la contraseña correctamente',
+            'alert-type' => 'success'
+        );
+        return back()->with($notification);
+    }
     
 
 }

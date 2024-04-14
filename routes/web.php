@@ -52,6 +52,8 @@ Route::middleware(['auth', 'roles:instructor'])->group(function () {
     Route::get('/instructor/logout', [InstructorController::class, 'InstructorLogout'])->name('instructor.logout');
     Route::get('/instructor/profile', [InstructorController::class, 'InstructorProfile'])->name('instructor.profile');
     Route::post('/store/instructor/profile', [InstructorController::class, 'StoreInstructorProfile'])->name('store.instructor.profile');
+    Route::get('/instructor/change/password', [InstructorController::class, 'InstructorChangePassword'])->name('instructor.change.password');
+    Route::post('/update/instructor/password', [InstructorController::class, 'UpdateInstructorPassword'])->name('update.instructor.password');
 });
 
  

@@ -674,7 +674,7 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.change.password') }}">
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('instructor.change.password') }}">
                             <i class="bx bx-cog fs-5"></i>
                             <span>Cambiar Contraseña</span>
                         </a>
