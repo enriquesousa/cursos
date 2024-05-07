@@ -1,6 +1,8 @@
 
 <!-- START HEADER AREA -->
 <header class="header-menu-area bg-white">
+
+    {{-- Primer linea de encabezado, phone, correo, dark mode , login y registro --}}
     <div class="header-top pr-150px pl-150px border-bottom border-bottom-gray py-1">
         <div class="container-fluid">
             <div class="row align-items-center">
@@ -51,14 +53,18 @@
             </div><!-- end row -->
         </div><!-- end container-fluid -->
     </div><!-- end header-top -->
+
+    {{-- Segunda linea de encabezado, logo | Categories Menu | Search for anything | Main Menu () | Carrito de Compras | Cuenta --}}
     <div class="header-menu-content pr-150px pl-150px bg-white">
         <div class="container-fluid">
             <div class="main-menu-content">
                 <a href="#" class="down-button"><i class="la la-angle-down"></i></a>
                 <div class="row align-items-center">
+
+                    {{-- Logo --}}
                     <div class="col-lg-2">
                         <div class="logo-box">
-                            <a href="index.html" class="logo"><img src="images/logo.png" alt="logo"></a>
+                            <a href="index.html" class="logo"><img src="{{ asset('frontend/images/logo.png') }}" alt="logo"></a>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2"
                                     data-toggle="tooltip" data-placement="top" title="Search">
@@ -75,8 +81,12 @@
                             </div>
                         </div>
                     </div><!-- end col-lg-2 -->
+
+                    {{-- Categories Menu | Search for anything | Main Menu () | Carrito de Compras | Cuenta --}}
                     <div class="col-lg-10">
                         <div class="menu-wrapper">
+
+                            {{-- Categories Menu --}}
                             <div class="menu-category">
                                 <ul>
                                     <li>
@@ -211,6 +221,8 @@
                                     </li>
                                 </ul>
                             </div><!-- end menu-category -->
+
+                            {{-- Search for anything --}}
                             <form method="post">
                                 <div class="form-group mb-0">
                                     <input class="form-control form--control pl-3" type="text" name="search"
@@ -218,6 +230,8 @@
                                     <span class="la la-search search-icon"></span>
                                 </div>
                             </form>
+
+                            {{-- Menu Principal (Home, Courses, Student, Pages, Blog) --}}
                             <nav class="main-menu">
                                 <ul>
                                     <li>
@@ -326,6 +340,8 @@
                                     </li>
                                 </ul><!-- end ul -->
                             </nav><!-- end main-menu -->
+
+                            {{-- Carrito de Compras --}}
                             <div class="shop-cart mr-4">
                                 <ul>
                                     <li>
@@ -373,21 +389,31 @@
                                     </li>
                                 </ul>
                             </div><!-- end shop-cart -->
+
+                            {{-- Botón admission --}}
                             <div class="nav-right-button">
                                 <a href="admission.html" class="btn theme-btn d-none d-lg-inline-block"><i
                                         class="la la-user-plus mr-1"></i> Admission</a>
                             </div><!-- end nav-right-button -->
+
                         </div><!-- end menu-wrapper -->
                     </div><!-- end col-lg-10 -->
+                
                 </div><!-- end row -->
             </div>
         </div><!-- end container-fluid -->
     </div><!-- end header-menu-content -->
+
+    {{-- Mobile - Menu Principal  --}}
     <div class="off-canvas-menu custom-scrollbar-styled main-off-canvas-menu">
+
+        {{-- Close button --}}
         <div class="off-canvas-menu-close main-menu-close icon-element icon-element-sm shadow-sm"
             data-toggle="tooltip" data-placement="left" title="Close menu">
             <i class="la la-times"></i>
         </div><!-- end off-canvas-menu-close -->
+
+        {{-- Menu Principal (Home, courses, student, pages, blog) - Mobile --}}
         <ul class="generic-list-item off-canvas-menu-list pt-90px">
             <li>
                 <a href="#">Home</a>
@@ -455,7 +481,7 @@
                 </ul>
             </li>
             <li>
-                <a href="#">blog</a>
+                <a href="#">blog mobile</a>
                 <ul class="sub-menu">
                     <li><a href="blog-full-width.html">blog full width </a></li>
                     <li><a href="blog-no-sidebar.html">blog no sidebar</a></li>
@@ -465,7 +491,10 @@
                 </ul>
             </li>
         </ul>
+
     </div><!-- end off-canvas-menu -->
+
+    {{-- Mobile - Menu Categories  --}}
     <div class="off-canvas-menu custom-scrollbar-styled category-off-canvas-menu">
         <div class="off-canvas-menu-close cat-menu-close icon-element icon-element-sm shadow-sm"
             data-toggle="tooltip" data-placement="left" title="Close menu">
@@ -577,7 +606,7 @@
                 </ul>
             </li>
             <li>
-                <a href="course-grid.html">Photography</a>
+                <a href="course-grid.html">Fotografía</a>
                 <ul class="sub-menu">
                     <li><a href="#">All Photography</a></li>
                     <li><a href="#">Digital Photography</a></li>
@@ -590,6 +619,8 @@
             </li>
         </ul>
     </div><!-- end off-canvas-menu -->
+
+    {{-- Mobile search form - Search for anything --}}
     <div class="mobile-search-form">
         <div class="d-flex align-items-center">
             <form method="post" class="flex-grow-1 mr-3">
@@ -604,6 +635,8 @@
             </div><!-- end off-canvas-menu-close -->
         </div>
     </div><!-- end mobile-search-form -->
+
     <div class="body-overlay"></div>
+
 </header><!-- end header-menu-area -->
 <!-- END HEADER AREA -->

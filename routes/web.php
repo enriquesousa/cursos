@@ -13,7 +13,7 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // })->name('home');
 
-Route::get('/', [UserController::class, 'Index'])->name('index');
+Route::get('/', [UserController::class, 'Index'])->name('home');
 
 
 Route::get('/dashboard', function () {
