@@ -13,7 +13,7 @@ use App\Http\Controllers\UserController;
 //     return view('welcome');
 // })->name('home');
 
-Route::get('/', [UserController::class, 'Index'])->name('home');
+
 
 
 Route::get('/dashboard', function () {
@@ -33,6 +33,11 @@ require __DIR__.'/auth.php';
 | Mis Rutas
 |--------------------------------------------------------------------------
 */
+
+// User
+Route::get('/', [UserController::class, 'Index'])->name('home');
+Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.login');
+
 
 // Admin Route Login Page
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');

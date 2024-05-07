@@ -11,6 +11,10 @@ class UserController extends Controller
         return view('frontend.index');
     }
 
+    // UserLogin
+    public function UserLogin(){
+       return view('frontend.dashboard.login');
+    }
 
 
 }
