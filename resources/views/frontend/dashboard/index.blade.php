@@ -1,14 +1,24 @@
 @extends('frontend.dashboard.user_dashboard')
 @section('content')
 
-{{-- breadcrumb-content | Howdy, Tim Buchalka --}}
+@php
+    $id = Auth::user()->id;
+    $profileData = App\Models\User::find($id);
+@endphp
+
+
+{{-- breadcrumb-content | Imagen y Nombre del Usuario --}}
 <div class="breadcrumb-content d-flex flex-wrap align-items-center justify-content-between mb-5">
+
+    {{-- Imagen y Nombre del Usuario --}}
     <div class="media media-card align-items-center">
+
         <div class="media-img media--img media-img-md rounded-full">
-            <img class="rounded-full" src="images/small-avatar-1.jpg" alt="Student thumbnail image">
+            <img class="rounded-full" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Student thumbnail image">
         </div>
+
         <div class="media-body">
-            <h2 class="section__title fs-30">Howdy, Tim Buchalka</h2>
+            <h2 class="section__title fs-30">Hola, {{ $profileData->name }}</h2>
             <div class="rating-wrap d-flex align-items-center pt-2">
                 <div class="review-stars">
                     <span class="rating-number">4.4</span>
@@ -21,11 +31,17 @@
                 <span class="rating-total pl-1">(20,230)</span>
             </div><!-- end rating-wrap -->
         </div><!-- end media-body -->
-    </div><!-- end media -->
-    <div class="file-upload-wrap file-upload-wrap-2 file--upload-wrap">
+
+    </div>
+    <!-- end media -->
+
+    {{-- Botón Subir Cursos --}}
+    {{-- <div class="file-upload-wrap file-upload-wrap-2 file--upload-wrap">
         <input type="file" name="files[]" class="multi file-upload-input">
         <span class="file-upload-text"><i class="la la-upload mr-2"></i>Upload a course</span>
-    </div><!-- file-upload-wrap -->
+    </div> --}}
+    <!-- file-upload-wrap -->
+
 </div><!-- end breadcrumb-content -->
 
 <div class="section-block mb-5"></div>
@@ -37,6 +53,8 @@
 
 {{-- Cuerpo Dashboard --}}
 <div class="row">
+
+    {{-- Card 1 | Enrolled Courses --}}
     <div class="col-lg-4 responsive-column-half">
         <div class="card card-item dashboard-info-card">
             <div class="card-body d-flex align-items-center">
@@ -58,7 +76,10 @@
                 </div>
             </div><!-- end card-body -->
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
+    </div>
+    <!-- end col-lg-4 -->
+
+    {{-- Card 2 | Active Courses --}}
     <div class="col-lg-4 responsive-column-half">
         <div class="card card-item dashboard-info-card">
             <div class="card-body d-flex align-items-center">
@@ -102,7 +123,10 @@
                 </div>
             </div><!-- end card-body -->
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
+    </div>
+    <!-- end col-lg-4 -->
+
+    {{-- Card 3 | Completed Courses --}}
     <div class="col-lg-4 responsive-column-half">
         <div class="card card-item dashboard-info-card">
             <div class="card-body d-flex align-items-center">
@@ -146,7 +170,10 @@
                 </div>
             </div><!-- end card-body -->
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
+    </div>
+    <!-- end col-lg-4 -->
+
+    {{-- Card 4 | Total Students --}}
     <div class="col-lg-4 responsive-column-half">
         <div class="card card-item dashboard-info-card">
             <div class="card-body d-flex align-items-center">
@@ -203,7 +230,10 @@
                 </div>
             </div><!-- end card-body -->
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
+    </div>
+    <!-- end col-lg-4 -->
+
+    {{-- Card 5 | Total Courses --}}
     <div class="col-lg-4 responsive-column-half">
         <div class="card card-item dashboard-info-card">
             <div class="card-body d-flex align-items-center">
@@ -247,7 +277,10 @@
                 </div>
             </div><!-- end card-body -->
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
+    </div>
+    <!-- end col-lg-4 -->
+
+    {{-- Card 6 | Total Earnings --}}
     <div class="col-lg-4 responsive-column-half">
         <div class="card card-item dashboard-info-card">
             <div class="card-body d-flex align-items-center">
@@ -260,8 +293,11 @@
                 </div>
             </div><!-- end card-body -->
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
-    <div class="col-lg-4 responsive-column-half">
+    </div>
+    <!-- end col-lg-4 -->
+
+    {{-- Card 7 | Graph pie chart | Total Sales  --}}
+    {{-- <div class="col-lg-4 responsive-column-half">
         <div class="card card-item">
             <div class="card-body">
                 <h3 class="fs-18 font-weight-semi-bold pb-4">Total Sales</h3>
@@ -269,8 +305,11 @@
                 <div id="legend" class="mt-40px text-center"></div>
             </div>
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
-    <div class="col-lg-4 responsive-column-half">
+    </div> --}}
+    <!-- end col-lg-4 -->
+
+    {{-- Card 8 | Graph bar chart | Net Income  --}}
+    {{-- <div class="col-lg-4 responsive-column-half">
         <div class="card card-item">
             <div class="card-body">
                 <h3 class="fs-18 font-weight-semi-bold pb-4">Net Income</h3>
@@ -280,8 +319,11 @@
                 </ul>
             </div>
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
-    <div class="col-lg-4">
+    </div> --}}
+    <!-- end col-lg-4 -->
+
+    {{-- Card 9 | Graph line chart | Earning by Location --}}
+    {{-- <div class="col-lg-4">
         <div class="card card-item">
             <div class="card-body">
                 <h3 class="fs-18 font-weight-semi-bold pb-4">Earning by Location</h3>
@@ -352,8 +394,11 @@
                 </div><!-- end my-course-progress-bar-wrap -->
             </div>
         </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
-    <div class="col-lg-7 responsive-column-half">
+    </div> --}}
+    <!-- end col-lg-4 -->
+
+    {{-- Card 10 | Graph line chart | Earning Statistics --}}
+    {{-- <div class="col-lg-7 responsive-column-half">
         <div class="card card-item">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center pb-4">
@@ -373,8 +418,11 @@
                 </ul>
             </div>
         </div><!-- end card -->
-    </div><!-- end col-lg-7 -->
-    <div class="col-lg-5 responsive-column-half">
+    </div> --}}
+    <!-- end col-lg-7 -->
+
+    {{-- Card 11 | Notifications | Notifications --}}
+    {{-- <div class="col-lg-5 responsive-column-half">
         <div class="card card-item">
             <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center pb-4">
@@ -448,7 +496,9 @@
                 </div>
             </div>
         </div><!-- end card -->
-    </div><!-- end col-lg-5 -->
+    </div> --}}
+    <!-- end col-lg-5 -->
+
 </div><!-- end row -->
 
 @endsection
