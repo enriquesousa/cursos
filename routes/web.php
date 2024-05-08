@@ -37,6 +37,7 @@ require __DIR__.'/auth.php';
 // User
 Route::get('/', [UserController::class, 'Index'])->name('home');
 Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.login');
+Route::get('/user/register', [UserController::class, 'UserRegister'])->name('user.register');
 
 
 // Admin Route Login Page

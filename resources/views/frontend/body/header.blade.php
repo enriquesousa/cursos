@@ -55,7 +55,7 @@
                             {{-- Registro --}}
                             <li class="d-flex align-items-center">
                                 <i class="la la-user mr-1"></i>
-                                <a href="sign-up.html"> 
+                                <a href="{{ route('user.register') }}"> 
                                     Register
                                 </a>
                             </li>
@@ -77,7 +77,7 @@
                     {{-- Logo --}}
                     <div class="col-lg-2">
                         <div class="logo-box">
-                            <a href="index.html" class="logo"><img src="{{ asset('frontend/images/logo.png') }}" alt="logo"></a>
+                            <a href="{{ route('home') }}" class="logo"><img src="{{ asset('frontend/images/logo.png') }}" alt="logo"></a>
                             <div class="user-btn-action">
                                 <div class="search-menu-toggle icon-element icon-element-sm shadow-sm mr-2"
                                     data-toggle="tooltip" data-placement="top" title="Search">
