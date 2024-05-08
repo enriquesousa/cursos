@@ -20,7 +20,10 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        // return view('auth.register');
+
+        // Esto es para poder entrar a nuestra propia forma de register si visitan http://cursos.test/register
+        return view('frontend.dashboard.register');
     }
 
     /**

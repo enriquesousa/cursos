@@ -18,6 +18,8 @@ class AuthenticatedSessionController extends Controller
     public function create(): View
     {
         // return view('auth.login');
+
+        // Esto es para poder entrar a nuestra propia forma de login si visitan http://cursos.test/login
         return view('frontend.dashboard.login');
     }
 
