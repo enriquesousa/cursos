@@ -14,17 +14,15 @@ use App\Http\Controllers\UserController;
 // })->name('home');
 
 
-
-
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 require __DIR__.'/auth.php';
 
@@ -34,10 +32,15 @@ require __DIR__.'/auth.php';
 |--------------------------------------------------------------------------
 */
 
-// User
+// User sin login
 Route::get('/', [UserController::class, 'Index'])->name('home');
 Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.login');
 Route::get('/user/register', [UserController::class, 'UserRegister'])->name('user.register');
+
+// User con login
+Route::middleware('auth')->group(function () {
+    Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+});
 
 
 // Admin Route Login Page
@@ -56,7 +59,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 // Instructor Routes Login Page
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
 
-// Instructor Routes
+// Instructor con login Routes
 Route::middleware(['auth', 'roles:instructor'])->group(function () {
     Route::get('/instructor/dashboard', [InstructorController::class, 'InstructorDashboard'])->name('instructor.dashboard');
     Route::get('/instructor/logout', [InstructorController::class, 'InstructorLogout'])->name('instructor.logout');
