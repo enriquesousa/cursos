@@ -8,7 +8,8 @@
 
         {{-- Foto de Perfil --}}
         <div class="media-img media--img media-img-md rounded-full">
-            <img class="rounded-full" src="{{ asset('frontend/images/small-avatar-1.jpg') }}" alt="Student thumbnail image">
+            {{-- <img class="rounded-full" src="{{ asset('frontend/images/small-avatar-1.jpg') }}" alt="Student thumbnail image"> --}}
+            <img class="rounded-full" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Student thumbnail image">
         </div>
 
         
@@ -58,7 +59,7 @@
     <h3 class="fs-17 font-weight-semi-bold pb-4">Editar Perfil</h3>
 
     <!-- Formulario: Foto de Perfil, Nombre, Username, Phone, Email, Bio(textarea) | Botón Guardar Cambios -->
-    <form method="post" class="row pt-40px" action="" enctype="multipart/form-data">
+    <form method="post" class="row pt-40px" action="{{ route('user.profile.update') }}" enctype="multipart/form-data">
         @csrf
 
         <!-- Foto de Perfil y Botón para Upload Imagen -->
