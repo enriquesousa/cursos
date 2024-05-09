@@ -393,8 +393,9 @@
                                                             </li>
 
                                                             <li>
-                                                                <a href="index.html">
-                                                                    <i class="la la-power-off mr-1"></i> Logout
+                                                                <a href="{{ route('user.logout') }}">
+                                                                    <i class="la la-power-off mr-1"></i> 
+                                                                    Salir
                                                                 </a>
                                                             </li>
 

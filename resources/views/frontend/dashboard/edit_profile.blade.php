@@ -15,7 +15,7 @@
         
         <div class="media-body">
 
-            <h2 class="section__title fs-30">Howdy, Tim Buchalka</h2>
+            <h2 class="section__title fs-30">Hola, {{ $profileData->name }}</h2>
 
             {{-- Calificación Estrellas --}}
             {{-- <div class="rating-wrap d-flex align-items-center pt-2">
@@ -74,9 +74,10 @@
             <div class="media-body">
                 <div class="file-upload-wrap file-upload-wrap-2">
                     <input type="file" name="photo" class="multi file-upload-input with-preview" multiple>
-                    <span class="file-upload-text"><i class="la la-photo mr-2"></i>Upload a Photo</span>
+                    <span class="file-upload-text"><i class="la la-photo mr-2"></i>Subir una Foto</span>
                 </div><!-- file-upload-wrap -->
-                <p class="fs-14">Max file size is 1MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png</p>
+                {{-- <p class="fs-14">Max file size is 1MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png</p> --}}
+                <p class="fs-14">Archivo Máximo de 1MB, Dimension Minima: 200x200px Y el tipo de archivos recomendados son .jpg & .png</p>
             </div>
 
         </div>
