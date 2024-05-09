@@ -53,30 +53,31 @@
     <h3 class="fs-17 font-weight-semi-bold pb-4">Cambiar Contraseña</h3>
 
     <!-- Cambiar Contraseña -->
-    <form method="post" class="row">
+    <form method="post" class="row" action="{{ route('user.password.update') }}">
+        @csrf
 
         {{-- old password --}}
         <div class="input-box col-lg-4">
             <label class="label-text">Contraseña Actual</label>
             <div class="form-group">
                 <input class="form-control form--control @error('old_password') is-invalid @enderror" type="password" name="old_password" id="old_password" placeholder="Entre contraseña actual">
+                @error('old_password')
+                    <span class="text-danger"> {{ $message }} </span>
+                @enderror
                 <span class="la la-lock input-icon"></span>
             </div>
-            @error('old_password')
-                <span class="text-danger"> {{ $message }} </span>
-            @enderror
         </div><!-- end input-box -->
 
         {{-- new password --}}
         <div class="input-box col-lg-4">
-            <label class="label-text">Nueva Contraseña</label>
+            <label class="label-text">Nueva Contraseña (Mínimo 8 caracteres)</label>
             <div class="form-group">
                 <input class="form-control form--control @error('new_password') is-invalid @enderror"" type="password" name="new_password" id="new_password" placeholder="Entre nueva contraseña">
+                @error('new_password')
+                    <span class="text-danger"> {{ $message }} </span>
+                @enderror
                 <span class="la la-lock input-icon"></span>
             </div>
-            @error('new_password')
-                <span class="text-danger"> {{ $message }} </span>
-            @enderror
         </div><!-- end input-box -->
 
         {{-- confirm new password --}}

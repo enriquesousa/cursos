@@ -83,6 +83,37 @@ class UserController extends Controller
         return view('frontend.dashboard.user_change_password',compact('profileData'));
     }
 
+    // UserPasswordUpdate
+    public function UserPasswordUpdate(Request $request){
+
+        // Validación
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:8',
+        ]);
+
+        // Match The Old Password 
+        if (!Hash::check($request->old_password, auth::user()->password)) {
+
+            $notification = array(
+                    'message' => '¡La contraseña anterior no coincide!',
+                    'alert-type' => 'error'
+                );
+            return back()->with($notification);
+        }
+
+
+        //// Update The New Password 
+        User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password)
+        ]);
+
+        $notification = array(
+            'message' => 'Se actualizo la contraseña correctamente',
+            'alert-type' => 'success'
+        );
+        return back()->with($notification);
+    }
 
 
 
