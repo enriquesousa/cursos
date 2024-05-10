@@ -25,8 +25,16 @@ class UserController extends Controller
        return view('frontend.dashboard.register');
     }
 
+
+    // UserViewProfile
+    public function UserViewProfile(){
+        $id = Auth::user()->id;
+        $profileData = User::findOrFail($id);
+        return view('frontend.dashboard.view_profile',compact('profileData'));
+    }
+
     // UserProfile
-    public function UserProfile(){
+    public function UserEditProfile(){
         $id = Auth::user()->id;
         $profileData = User::findOrFail($id);
         return view('frontend.dashboard.edit_profile',compact('profileData'));

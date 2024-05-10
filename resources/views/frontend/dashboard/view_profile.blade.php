@@ -1,0 +1,79 @@
+@extends('frontend.dashboard.user_dashboard')
+@section('content')
+
+{{-- Breadcrumb Content --}}
+<div class="breadcrumb-content d-flex flex-wrap align-items-center justify-content-between mb-5">
+    {{-- Foto de Perfil y Nombre de User --}}
+    <div class="media media-card align-items-center">
+
+        {{-- Foto de Perfil --}}
+        <div class="media-img media--img media-img-md rounded-full">
+            {{-- <img class="rounded-full" src="{{ asset('frontend/images/small-avatar-1.jpg') }}" alt="Student thumbnail image"> --}}
+            <img class="rounded-full" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Student thumbnail image">
+        </div>
+
+        
+        <div class="media-body">
+
+            <h2 class="section__title fs-30">Hola, {{ $profileData->name }}</h2>
+
+            {{-- Calificación Estrellas --}}
+            {{-- <div class="rating-wrap d-flex align-items-center pt-2">
+                <div class="review-stars">
+                    <span class="rating-number">4.4</span>
+                    <span class="la la-star"></span>
+                    <span class="la la-star"></span>
+                    <span class="la la-star"></span>
+                    <span class="la la-star"></span>
+                    <span class="la la-star-o"></span>
+                </div>
+                <span class="rating-total pl-1">(20,230)</span>
+            </div> --}}
+            <!-- end rating-wrap -->
+
+        </div>
+        <!-- end media-body -->
+
+    </div>
+    
+    {{-- Boton de Upload --}}
+    {{-- <div class="file-upload-wrap file-upload-wrap-2 file--upload-wrap">
+        <input type="file" name="files[]" class="multi file-upload-input">
+        <span class="file-upload-text"><i class="la la-upload mr-2"></i>Upload a course</span>
+    </div> --}}
+    <!-- file-upload-wrap -->
+</div>
+<!-- end breadcrumb-content -->
+
+<div class="section-block mb-5"></div>
+
+<div class="dashboard-heading mb-5">
+    <h3 class="fs-22 font-weight-semi-bold">{{ __('My Profile') }}</h3>
+</div>
+
+<div class="profile-detail mb-5">
+    <ul class="generic-list-item generic-list-item-flash">
+
+        <li>
+            <span class="profile-name">{{ __('Registration Date') }}:</span>
+            <span class="profile-desc">{{ formatFecha1($profileData->created_at) }}</span>
+        </li>
+
+        <li>
+            <span class="profile-name">First Name:</span>
+            <span class="profile-desc">Alex</span>
+        </li>
+
+        <li><span class="profile-name">Last Name:</span><span class="profile-desc">Smith</span></li>
+        <li><span class="profile-name">User Name:</span><span class="profile-desc">alex-admin</span></li>
+        <li><span class="profile-name">Email:</span><span class="profile-desc">alexsmith@gmail.com</span></li>
+        <li><span class="profile-name">Phone Number:</span><span class="profile-desc">(91) 7547 622250</span></li>
+        <li>
+            <span class="profile-name">Bio:</span>
+            <span class="profile-desc">Hello! I am a Alex Smith, Washington area graphic designer with over 6 years of graphic design experience. I specialize in designing infographics, icons, brochures, and flyers.</span>
+        </li>
+    </ul>
+</div>
+
+
+@endsection

@@ -39,7 +39,8 @@ Route::get('/user/register', [UserController::class, 'UserRegister'])->name('use
 
 // User con login
 Route::middleware('auth')->group(function () {
-    Route::get('/user/profile', [UserController::class, 'UserProfile'])->name('user.profile');
+    Route::get('/user/view/profile', [UserController::class, 'UserViewProfile'])->name('user.view.profile');
+    Route::get('/user/edit/profile', [UserController::class, 'UserEditProfile'])->name('user.edit.profile');
     Route::post('/user/profile/update', [UserController::class, 'UserProfileUpdate'])->name('user.profile.update');
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');

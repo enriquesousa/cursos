@@ -49,8 +49,9 @@
 
                             <div class="d-flex flex-wrap align-items-center pb-4">
                                 <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-google mr-2"></i>Google</button>
-                                <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-facebook mr-2"></i>Facebook</button>
-                                <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-twitter mr-2"></i>Twitter</button>
+                                <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-github mr-2"></i>Github</button>
+                                {{-- <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-facebook mr-2"></i>Facebook</button> --}}
+                                {{-- <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-twitter mr-2"></i>Twitter</button> --}}
                             </div>
                             <div class="text-center pt-3 pb-4">
                                 <div class="icon-element icon-element-md fs-25 shadow-sm">Or</div>
