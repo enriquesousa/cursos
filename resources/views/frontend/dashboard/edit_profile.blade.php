@@ -53,10 +53,10 @@
 </div> --}}
 
 {{-- Editar Perfil, Foto, Formulario: Nombre, Username, Phone, Email, Bio(textarea) | Botón Guardar Cambios --}}
-<div class="setting-body">
+{{-- <div class="setting-body">
 
     <!-- Titulo Edit Profile -->
-    <h3 class="fs-17 font-weight-semi-bold pb-4">Editar Perfil</h3>
+    <h3 class="fs-17 font-weight-semi-bold pb-4">{{ __('Edit Profile') }}</h3>
 
     <!-- Formulario: Foto de Perfil, Nombre, Username, Phone, Email, Bio(textarea) | Botón Guardar Cambios -->
     <form method="post" class="row pt-40px" action="{{ route('user.profile.update') }}" enctype="multipart/form-data">
@@ -72,19 +72,21 @@
 
             <!-- Botón de Upload -->
             <div class="media-body">
+
                 <div class="file-upload-wrap file-upload-wrap-2">
                     <input type="file" name="photo" class="multi file-upload-input with-preview" multiple>
-                    <span class="file-upload-text"><i class="la la-photo mr-2"></i>Subir una Foto</span>
+                    <span class="file-upload-text"><i class="la la-photo mr-2"></i>{{ __('Upload a Photo') }}</span>
                 </div><!-- file-upload-wrap -->
-                {{-- <p class="fs-14">Max file size is 1MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png</p> --}}
-                <p class="fs-14">Archivo Máximo de 1MB, Dimension Minima: 200x200px Y el tipo de archivos recomendados son .jpg & .png</p>
+
+                <p class="fs-14">{{ __('Max file size is 1MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png') }}</p>
+                
             </div>
 
         </div>
 
         <!-- Nombre -->
         <div class="input-box col-lg-6">
-            <label class="label-text">Nombre</label>
+            <label class="label-text">{{ __('Name') }}</label>
             <div class="form-group">
                 <input class="form-control form--control" type="text" name="name" value="{{ $profileData->name }}">
                 <span class="la la-user input-icon"></span>
@@ -93,7 +95,7 @@
 
         <!-- User Name -->
         <div class="input-box col-lg-6">
-            <label class="label-text">Nombre Corto</label>
+            <label class="label-text">{{ __('Username Short') }}</label>
             <div class="form-group">
                 <input class="form-control form--control" type="text" name="username" value="{{ $profileData->username }}">
                 <span class="la la-user input-icon"></span>
@@ -102,7 +104,7 @@
 
         <!-- Email Address -->
         <div class="input-box col-lg-6">
-            <label class="label-text">Correo Electrónico</label>
+            <label class="label-text">{{ __('Email') }}</label>
             <div class="form-group">
                 <input class="form-control form--control" type="email" name="email" value="{{ $profileData->email }}">
                 <span class="la la-envelope input-icon"></span>
@@ -111,7 +113,7 @@
 
         <!-- Phone Number -->
         <div class="input-box col-lg-12">
-            <label class="label-text">Teléfono</label>
+            <label class="label-text">{{ __('Phone Number') }}</label>
             <div class="form-group">
                 <input class="form-control form--control" type="number" name="phone" value="{{ $profileData->phone }}">
                 <span class="la la-phone input-icon"></span>
@@ -120,7 +122,7 @@
 
         <!-- Dirección -->
         <div class="input-box col-lg-12">
-            <label class="label-text">Dirección</label>
+            <label class="label-text">{{ __('Address') }}</label>
             <div class="form-group">
                 <input class="form-control form--control" type="text" name="address" value="{{ $profileData->address }}">
                 <span class="la la-pencil input-icon"></span>
@@ -128,198 +130,235 @@
         </div><!-- end input-box -->
 
         <!-- Bio -->
-        {{-- <div class="input-box col-lg-12">
-            <label class="label-text">Bio</label>
+        <div class="input-box col-lg-12">
+            <label class="label-text">{{ __('Description') }}</label>
             <div class="form-group">
-                <textarea class="form-control form--control user-text-editor pl-3" name="message">Hello! I am Alex Smith Washington area graphic designer with over 6 years of graphic design experience. I specialize in designing infographics, icons, brochures, and flyers</textarea>
+                <textarea class="form-control form--control user-text-editor pl-3" name="message">
+                    {{ $profileData->description }}
+                </textarea>
             </div>
-        </div> --}}
+        </div>
         <!-- end input-box -->
 
 
         <!-- Botón de Guardar cambios -->
         <div class="input-box col-lg-12 py-2">
-            <button class="btn theme-btn">Guardar Cambios</button>
+            <button class="btn theme-btn">{{ __('Save Changes') }}</button>
         </div><!-- end input-box -->
 
     </form>
 
-</div><!-- end setting-body -->
+</div> --}}
+<!-- end setting-body -->
 
 
 {{-- Tabs | Profile, password, Change Email, Withdraw, Account --}}
-{{-- <ul class="nav nav-tabs generic-tab pb-30px" id="myTab" role="tablist">
+<ul class="nav nav-tabs generic-tab pb-30px" id="myTab" role="tablist">
     <li class="nav-item">
         <a class="nav-link active" id="edit-profile-tab" data-toggle="tab" href="#edit-profile" role="tab" aria-controls="edit-profile" aria-selected="false">
-            Profile
+            {{ __('Profile') }}
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="password" aria-selected="true">
-            Password
+            {{ __('Password') }}
         </a>
     </li>
     <li class="nav-item">
         <a class="nav-link" id="change-email-tab" data-toggle="tab" href="#change-email" role="tab" aria-controls="change-email" aria-selected="false">
-            Change Email
+            {{ __('Change Email') }}
         </a>
     </li>
-    <li class="nav-item">
+
+    {{-- <li class="nav-item">
         <a class="nav-link" id="withdraw-tab" data-toggle="tab" href="#withdraw" role="tab" aria-controls="withdraw" aria-selected="false">
             Withdraw
         </a>
-    </li>
+    </li> --}}
+
     <li class="nav-item">
         <a class="nav-link" id="account-tab" data-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="false">
-            Account
+            {{ __('Account') }}
         </a>
     </li>
-</ul> --}}
+</ul>
 
 {{-- Tabs | Contenido --}}
 <div class="tab-content" id="myTabContent">
 
     {{-- Tab | Editar Perfil, Foto, Formulario: Nombre, Username, Phone, Email, Bio(textarea) | Botón Guardar Cambios  --}}
-    {{-- <div class="tab-pane fade show active" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
+    <div class="tab-pane fade show active" id="edit-profile" role="tabpanel" aria-labelledby="edit-profile-tab">
         <div class="setting-body">
 
-            <!-- Edit Profile -->
-            <h3 class="fs-17 font-weight-semi-bold pb-4">Edit Profile</h3>
-
-            <!-- Foto de Perfil y Botón para Upload Imagen -->
-            <div class="media media-card align-items-center">
-
-                <!-- Foto de Perfil -->
-                <div class="media-img media-img-lg mr-4 bg-gray">
-                    <img class="mr-3" src="{{ asset('frontend/images/team11.jpg') }}" alt="avatar image">
+            <!-- Titulo Edit Profile -->
+            <h3 class="fs-17 font-weight-semi-bold pb-4">{{ __('Edit Profile') }}</h3>
+        
+            <!-- Formulario: Foto de Perfil, Nombre, Username, Phone, Email, Bio(textarea) | Botón Guardar Cambios -->
+            <form method="post" class="row pt-40px" action="{{ route('user.profile.update') }}" enctype="multipart/form-data">
+                @csrf
+        
+                <!-- Foto de Perfil y Botón para Upload Imagen -->
+                <div class="media media-card align-items-center">
+        
+                    <!-- Foto de Perfil -->
+                    <div class="media-img media-img-lg mr-4 bg-gray">
+                        <img class="mr-3" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="avatar image">
+                    </div>
+        
+                    <!-- Botón de Upload -->
+                    <div class="media-body">
+        
+                        <div class="file-upload-wrap file-upload-wrap-2">
+                            <input type="file" name="photo" class="multi file-upload-input with-preview" multiple>
+                            <span class="file-upload-text"><i class="la la-photo mr-2"></i>{{ __('Upload a Photo') }}</span>
+                        </div><!-- file-upload-wrap -->
+        
+                        <p class="fs-14">{{ __('Max file size is 1MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png') }}</p>
+                        
+                    </div>
+        
                 </div>
-
-                <!-- Botón de Upload -->
-                <div class="media-body">
-                    <div class="file-upload-wrap file-upload-wrap-2">
-                        <input type="file" name="files[]" class="multi file-upload-input with-preview" multiple>
-                        <span class="file-upload-text"><i class="la la-photo mr-2"></i>Upload a Photo</span>
-                    </div><!-- file-upload-wrap -->
-                    <p class="fs-14">Max file size is 5MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png</p>
-                </div>
-
-            </div>
-
-            <!-- Formulario. Nombre, Username, Phone, Email, Bio(textarea) | Botón Guardar Cambios -->
-            <form method="post" class="row pt-40px">
+        
+                <!-- Nombre -->
                 <div class="input-box col-lg-6">
-                    <label class="label-text">First Name</label>
+                    <label class="label-text">{{ __('Name') }}</label>
                     <div class="form-group">
-                        <input class="form-control form--control" type="text" name="text" value="Alex">
+                        <input class="form-control form--control" type="text" name="name" value="{{ $profileData->name }}">
                         <span class="la la-user input-icon"></span>
                     </div>
                 </div><!-- end input-box -->
+        
+                <!-- User Name -->
                 <div class="input-box col-lg-6">
-                    <label class="label-text">Last Name</label>
+                    <label class="label-text">{{ __('Username Short') }}</label>
                     <div class="form-group">
-                        <input class="form-control form--control" type="text" name="text" value="Smith">
+                        <input class="form-control form--control" type="text" name="username" value="{{ $profileData->username }}">
                         <span class="la la-user input-icon"></span>
                     </div>
                 </div><!-- end input-box -->
+        
+                <!-- Email Address -->
                 <div class="input-box col-lg-6">
-                    <label class="label-text">User Name</label>
+                    <label class="label-text">{{ __('Email') }}</label>
                     <div class="form-group">
-                        <input class="form-control form--control" type="text" name="text" value="alex-admin">
-                        <span class="la la-user input-icon"></span>
-                    </div>
-                </div><!-- end input-box -->
-                <div class="input-box col-lg-6">
-                    <label class="label-text">Email Address</label>
-                    <div class="form-group">
-                        <input class="form-control form--control" type="email" name="email" value="alexsmith@gmail.com">
+                        <input class="form-control form--control" type="email" name="email" value="{{ $profileData->email }}">
                         <span class="la la-envelope input-icon"></span>
                     </div>
                 </div><!-- end input-box -->
+        
+                <!-- Phone Number -->
                 <div class="input-box col-lg-12">
-                    <label class="label-text">Phone Number</label>
+                    <label class="label-text">{{ __('Phone Number') }}</label>
                     <div class="form-group">
-                        <input class="form-control form--control" type="text" name="text" value="(91) 7547 622250">
+                        <input class="form-control form--control" type="number" name="phone" value="{{ $profileData->phone }}">
                         <span class="la la-phone input-icon"></span>
                     </div>
                 </div><!-- end input-box -->
+        
+                <!-- Dirección -->
                 <div class="input-box col-lg-12">
-                    <label class="label-text">Bio</label>
+                    <label class="label-text">{{ __('Address') }}</label>
                     <div class="form-group">
-                        <textarea class="form-control form--control user-text-editor pl-3" name="message">Hello! I am Alex Smith Washington area graphic designer with over 6 years of graphic design experience. I specialize in designing infographics, icons, brochures, and flyers</textarea>
+                        <input class="form-control form--control" type="text" name="address" value="{{ $profileData->address }}">
+                        <span class="la la-pencil input-icon"></span>
                     </div>
                 </div><!-- end input-box -->
-
+        
+                <!-- Bio / Descripción -->
+                <div class="input-box col-lg-12">
+                    <label class="label-text">{{ __('Description') }}</label>
+                    <div class="form-group">
+                        <textarea class="form-control form--control user-text-editor pl-3" name="description">{{ $profileData->description }}</textarea>
+                    </div>
+                </div>
+                <!-- end input-box -->
+        
+        
                 <!-- Botón de Guardar cambios -->
                 <div class="input-box col-lg-12 py-2">
-                    <button class="btn theme-btn">Save Changes</button>
+                    <button class="btn theme-btn">{{ __('Save Changes') }}</button>
                 </div><!-- end input-box -->
-
+        
             </form>
-
-        </div><!-- end setting-body -->
-    </div> --}}
+        
+        </div>
+    </div>
     <!-- end tab-pane -->
 
     {{-- Tab | Editar Contraseña, oldpassword, newpassword, confirmnewpassword | Botón de Cambiar Contraseña | Recuperar Contraseña  --}}
-    {{-- <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+    <div class="tab-pane fade" id="password" role="tabpanel" aria-labelledby="password-tab">
+
         <div class="setting-body">
-            <h3 class="fs-17 font-weight-semi-bold pb-4">Change Password</h3>
+
+            <h3 class="fs-17 font-weight-semi-bold pb-4">{{ __('Change Password') }}</h3>
 
             <!-- Cambiar Contraseña -->
-            <form method="post" class="row">
+            <form method="post" class="row" action="{{ route('user.password.update') }}">
+                @csrf
+
+                <!-- old password -->
                 <div class="input-box col-lg-4">
-                    <label class="label-text">Old Password</label>
+                    <label class="label-text">{{ __('Current Password') }}</label>
                     <div class="form-group">
-                        <input class="form-control form--control" type="text" name="text" placeholder="Old Password">
-                        <span class="la la-lock input-icon"></span>
-                    </div>
-                </div><!-- end input-box -->
-                <div class="input-box col-lg-4">
-                    <label class="label-text">New Password</label>
-                    <div class="form-group">
-                        <input class="form-control form--control" type="text" name="text" placeholder="New Password">
-                        <span class="la la-lock input-icon"></span>
-                    </div>
-                </div><!-- end input-box -->
-                <div class="input-box col-lg-4">
-                    <label class="label-text">Confirm New Password</label>
-                    <div class="form-group">
-                        <input class="form-control form--control" type="text" name="text" placeholder="Confirm New Password">
+                        <input class="form-control form--control @error('old_password') is-invalid @enderror" type="password" name="old_password" id="old_password" placeholder="{{ __('Enter current password') }}">
+                        @error('old_password')
+                            <span class="text-danger"> {{ $message }} </span>
+                        @enderror
                         <span class="la la-lock input-icon"></span>
                     </div>
                 </div><!-- end input-box -->
 
-                <!-- Botón de Cambiar Contraseña -->
+                <!-- new password -->
+                <div class="input-box col-lg-4">
+                    <label class="label-text">{{ __('New Password') }} ({{ __('Min. 8 characters') }})</label>
+                    <div class="form-group">
+                        <input class="form-control form--control @error('new_password') is-invalid @enderror"" type="password" name="new_password" id="new_password" placeholder="{{ __('Enter new password') }}">
+                        @error('new_password')
+                            <span class="text-danger"> {{ $message }} </span>
+                        @enderror
+                        <span class="la la-lock input-icon"></span>
+                    </div>
+                </div><!-- end input-box -->
+
+                <!-- confirm new password -->
+                <div class="input-box col-lg-4">
+                    <label class="label-text">{{ __('Confirm New Password') }}</label>
+                    <div class="form-group">
+                        <input class="form-control form--control" type="password" name="new_password_confirmation" id="new_password_confirmation" placeholder="{{ __('Confirm new password') }}">
+                        <span class="la la-lock input-icon"></span>
+                    </div>
+                </div><!-- end input-box -->
+
+                <!-- Botón Cambiar Contraseña -->
                 <div class="input-box col-lg-12 py-2">
-                    <button class="btn theme-btn">Change Password</button>
+                    <button class="btn theme-btn">{{ __('Change Password') }}</button>
                 </div><!-- end input-box -->
 
             </form>
 
             <!-- Recuperar Contraseña  -->
             <form method="post" class="pt-5 mt-5 border-top border-top-gray">
-                <h3 class="fs-17 font-weight-semi-bold pb-1">Forgot Password then Recover Password</h3>
-                <p class="pb-4">Enter the email of your account to reset password. Then you will receive a link to email
-                    to reset the password. If you have any issue about reset password
-                    <a href="contact.html" class="text-color">contact us</a></p>
+                <h3 class="fs-17 font-weight-semi-bold pb-1">{{ __('Recover Password') }}</h3>
+                <p class="pb-4">{{ __('Enter the email of your account to reset password. Then you will receive a link to email to reset the password. If you have any issue about reset password') }}
+                    <a href="contact.html" class="text-color">{{ __('contact us') }}</a></p>
                 <div class="input-box">
-                    <label class="label-text">Email Address</label>
+                    <label class="label-text">{{ __('Email Address') }}</label>
                     <div class="form-group">
-                        <input class="form-control form--control" type="email" name="email" placeholder="Enter email address">
+                        <input class="form-control form--control" type="email" name="email" placeholder="{{ __('Enter email address') }}">
                         <span class="la la-envelope input-icon"></span>
                     </div>
                 </div><!-- end input-box -->
                 <div class="input-box py-2">
-                    <button class="btn theme-btn">Recover Password</button>
+                    <button class="btn theme-btn">{{ __('Recover Password') }}</button>
                 </div><!-- end input-box -->
             </form>
 
         </div><!-- end setting-body -->
-    </div> --}}
+    </div>
     <!-- end tab-pane -->
 
     {{-- Tab | Change Email --}}
-    {{-- <div class="tab-pane fade" id="change-email" role="tabpanel" aria-labelledby="change-email-tab">
+    <div class="tab-pane fade" id="change-email" role="tabpanel" aria-labelledby="change-email-tab">
         <div class="setting-body">
             <h3 class="fs-17 font-weight-semi-bold pb-4">Change Email</h3>
             <form method="post" class="row">
@@ -349,7 +388,7 @@
                 </div><!-- end input-box -->
             </form>
         </div><!-- end setting-body -->
-    </div> --}}
+    </div>
     <!-- end tab-pane -->
 
     {{-- Tab | Seleccionar Método de Retiro --}}
@@ -458,7 +497,7 @@
     <!-- end tab-pane -->
 
     {{-- Tab | Cuenta Activar o Desactivar --}}
-    {{-- <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
+    <div class="tab-pane fade" id="account" role="tabpanel" aria-labelledby="account-tab">
         <div class="setting-body">
             <h3 class="fs-17 font-weight-semi-bold pb-4">My Account</h3>
             <form method="post" class="mb-40px">
@@ -479,7 +518,7 @@
                 <button class="btn theme-btn" data-toggle="modal" data-target="#deleteModal">Delete my account</button>
             </div>
         </div><!-- end setting-body -->
-    </div> --}}
+    </div>
     <!-- end tab-pane -->
 
 </div>

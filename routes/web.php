@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InstructorController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\LocalizationController;
 
 
 // Route::get('/', function () {
@@ -37,14 +37,22 @@ Route::get('/', [UserController::class, 'Index'])->name('home');
 Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.login');
 Route::get('/user/register', [UserController::class, 'UserRegister'])->name('user.register');
 
+Route::get('/locale/{locale}', [LocalizationController::class, 'setLanguage'])->name('locale');
+
+
 // User con login
 Route::middleware('auth')->group(function () {
+
     Route::get('/user/view/profile', [UserController::class, 'UserViewProfile'])->name('user.view.profile');
     Route::get('/user/edit/profile', [UserController::class, 'UserEditProfile'])->name('user.edit.profile');
     Route::post('/user/profile/update', [UserController::class, 'UserProfileUpdate'])->name('user.profile.update');
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
     Route::get('/user/change/password', [UserController::class, 'UserChangePassword'])->name('user.change.password');
     Route::post('/user/password/update', [UserController::class, 'UserPasswordUpdate'])->name('user.password.update');
+
+    Route::get('/user/view/change/language', [UserController::class, 'UserViewChangeLanguage'])->name('user.view.change.language');
+    Route::post('/user/update/change/language', [UserController::class, 'UserUpdateChangeLanguage'])->name('user.update.change.language');
+
 });
 
 

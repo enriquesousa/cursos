@@ -11,37 +11,43 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     // Index
-    public function Index(){
+    public function Index()
+    {
         return view('frontend.index');
     }
 
     // UserLogin
-    public function UserLogin(){
-       return view('frontend.dashboard.login');
+    public function UserLogin()
+    {
+        return view('frontend.dashboard.login');
     }
 
     // UserRegister
-    public function UserRegister(){
-       return view('frontend.dashboard.register');
+    public function UserRegister()
+    {
+        return view('frontend.dashboard.register');
     }
 
 
     // UserViewProfile
-    public function UserViewProfile(){
+    public function UserViewProfile()
+    {
         $id = Auth::user()->id;
         $profileData = User::findOrFail($id);
-        return view('frontend.dashboard.view_profile',compact('profileData'));
+        return view('frontend.dashboard.view_profile', compact('profileData'));
     }
 
     // UserProfile
-    public function UserEditProfile(){
+    public function UserEditProfile()
+    {
         $id = Auth::user()->id;
         $profileData = User::findOrFail($id);
-        return view('frontend.dashboard.edit_profile',compact('profileData'));
+        return view('frontend.dashboard.edit_profile', compact('profileData'));
     }
 
     // UserProfileUpdate
-    public function UserProfileUpdate(Request $request){
+    public function UserProfileUpdate(Request $request)
+    {
 
         $id = Auth::user()->id;
         $data = User::find($id);
@@ -51,6 +57,7 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->address = $request->address;
+        $data->description = $request->description;
 
         // si existe imagen, entonces se va a actualizar imagen
         if ($request->file('photo')) {
@@ -73,11 +80,11 @@ class UserController extends Controller
         );
 
         return redirect()->back()->with($notification);
-
     }
 
     // UserLogout
-    public function UserLogout(Request $request){
+    public function UserLogout(Request $request)
+    {
         Auth::guard('web')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
@@ -85,14 +92,16 @@ class UserController extends Controller
     }
 
     // UserChangePassword
-    public function UserChangePassword(){
+    public function UserChangePassword()
+    {
         $id = Auth::user()->id;
         $profileData = User::findOrFail($id);
-        return view('frontend.dashboard.user_change_password',compact('profileData'));
+        return view('frontend.dashboard.user_change_password', compact('profileData'));
     }
 
     // UserPasswordUpdate
-    public function UserPasswordUpdate(Request $request){
+    public function UserPasswordUpdate(Request $request)
+    {
 
         // Validación
         $request->validate([
@@ -104,9 +113,9 @@ class UserController extends Controller
         if (!Hash::check($request->old_password, auth::user()->password)) {
 
             $notification = array(
-                    'message' => '¡La contraseña anterior no coincide!',
-                    'alert-type' => 'error'
-                );
+                'message' => '¡La contraseña anterior no coincide!',
+                'alert-type' => 'error'
+            );
             return back()->with($notification);
         }
 
@@ -122,6 +131,37 @@ class UserController extends Controller
         );
         return back()->with($notification);
     }
+
+
+    // ChangeLocaleLanguage
+    public function UserViewChangeLanguage()
+    {
+        return view('frontend.dashboard.user_change_language');
+    }
+
+    // UserUpdateChangeLanguage
+    public function UserUpdateChangeLanguage(Request $request)
+    {
+
+        $lenguaje = $request->lang;
+        //dd($lenguaje);
+
+        if ($lenguaje == 'es') {
+            $notification = array(
+                'message' => 'Idioma cambiado a Español correctamente',    
+            );
+            return redirect('/locale/es')->with($notification);
+        }
+
+        if ($lenguaje == 'en') {
+            $notification = array(
+                'message' => 'Language changed to English successfully',    
+            );
+            return redirect('/locale/en')->with($notification);
+        }
+
+    }
+
 
 
 

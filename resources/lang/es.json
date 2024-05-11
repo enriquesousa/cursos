@@ -42,6 +42,7 @@
     "Did you forget your password?. <strong>Do not worry!</strong>. Just let us know your email address and we will send you a link to reset your password that will allow you to choose a new one.":  "¿Olvidaste tu contraseña?. <strong>¡No te preocupes!</strong>. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña que le permitirá elegir una nueva.",
     
     "<b>Recover password</b>":  "<b>Recuperar contraseña</b>",
+    "Recover Password":  "Recuperar contraseña",
     "<b>Register Form</b>":  "<b>Forma de Registro</b>",
     "Username":  "Nombre de usuario una sola palabra y en minúscula",
     "Username Short":  "Nombre Corto",
@@ -101,6 +102,7 @@
     "Permanently delete your account.": "Eliminar permanentemente su cuenta.",
     "Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.": "Una vez que su cuenta sea eliminada, todos sus recursos y datos se eliminará permanentemente. Antes de eliminar su cuenta, descargue cualquier información o datos que desee conservar.",
     "DELETE ACCOUNT": "Eliminar cuenta",
+    "Account": "Cuenta",
 
 
     "Update your account's profile information.": "Actualice la información del perfil de su cuenta.",
@@ -108,6 +110,8 @@
     "Ensure your account is using a long, random password to stay secure.": "Asegúrate de que su cuenta este usando una contraseña más larga, aleatoria para estar segura.",
     "Current Password": "Contraseña actual",
     "New Password": "Nueva contraseña",
+    "Min. 8 characters": "Min. 8 caracteres",
+    "Confirm New Password": "Confirmar nueva contraseña",
 
     "Photo": "Foto",
     "Select A New Photo": "SELECCIONAR UNA NUEVA FOTO",
@@ -207,8 +211,23 @@
     "Search": "Buscar",
     "Filter": "Filtrar",
 
-    "Registration Date": "Fecha de Registro"
-    
+    "Registration Date": "Fecha de Registro",
+    "Upload a Photo": "Subir una Foto",
+    "Max file size is 1MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png": "Tamaño máximo de archivo es 1MB, Dimension minima: 200x200 y archivos compatibles: .jpg & .png",
 
+    "Address": "Dirección",
+    "Description": "Descripción",
+    "Save Changes": "Guardar Cambios",
+    "Change Email": "Cambiar Correo",
+    "Enter current password": "Introduzca la contraseña actual",
+    "Enter new password": "Introduzca la nueva contraseña",
+    "Confirm new password": "Confirme la nueva contraseña",
+
+    "Enter the email of your account to reset password. Then you will receive a link to email to reset the password. If you have any issue about reset password": "Ingrese el correo electrónico de su cuenta para restablecer la contraseña. Luego recibirás un enlace al correo electrónico. Para restablecer la contraseña. Si tiene algún problema con el restablecimiento de contraseña",
+    "contact us": "contáctenos",
+    "Email Address": "Correo electrónico",
+    "Enter email address": "Introduzca la dirección de correo electrónico",
+    "Change Language": "Cambiar Idioma"
+    
 
 }
