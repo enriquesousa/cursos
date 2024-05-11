@@ -56,22 +56,50 @@
 
         <li>
             <span class="profile-name">{{ __('Registration Date') }}:</span>
-            <span class="profile-desc">{{ formatFecha1($profileData->created_at) }}</span>
+            <span class="profile-desc">{{ formatFecha2($profileData->created_at) }}</span>
         </li>
 
         <li>
-            <span class="profile-name">First Name:</span>
-            <span class="profile-desc">Alex</span>
+            <span class="profile-name">{{ __('Name') }}:</span>
+            <span class="profile-desc">{{ $profileData->name }}</span>
         </li>
 
-        <li><span class="profile-name">Last Name:</span><span class="profile-desc">Smith</span></li>
-        <li><span class="profile-name">User Name:</span><span class="profile-desc">alex-admin</span></li>
-        <li><span class="profile-name">Email:</span><span class="profile-desc">alexsmith@gmail.com</span></li>
-        <li><span class="profile-name">Phone Number:</span><span class="profile-desc">(91) 7547 622250</span></li>
+        <li>
+            <span class="profile-name">{{ __('Username Short') }}:</span>
+            <span class="profile-desc">{{ $profileData->username }}</span>
+        </li>
+
+
+        {{-- <li>
+            <span class="profile-name">First Name:</span>
+            <span class="profile-desc">Alex</span>
+        </li> --}}
+
+        {{-- <li>
+            <span class="profile-name">Last Name:</span>
+            <span class="profile-desc">Smith</span>
+        </li> --}}
+
+        {{-- <li>
+            <span class="profile-name">User Name:</span>
+            <span class="profile-desc">alex-admin</span>
+        </li> --}}
+
+        <li>
+            <span class="profile-name">{{ __('Email') }}:</span>
+            <span class="profile-desc">{{ $profileData->email }}</span>
+        </li>
+
+        <li>
+            <span class="profile-name">{{ __('Phone Number') }}:</span>
+            <span class="profile-desc">{{ formatPhoneNumber($profileData->phone) }}</span>
+        </li>
+
         <li>
             <span class="profile-name">Bio:</span>
             <span class="profile-desc">Hello! I am a Alex Smith, Washington area graphic designer with over 6 years of graphic design experience. I specialize in designing infographics, icons, brochures, and flyers.</span>
         </li>
+
     </ul>
 </div>
 
