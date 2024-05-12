@@ -137,6 +137,7 @@
     "My Profile": "Mi Perfil",
     "Admin Profile": "Perfil de Administrador",
     "Sign up using": "Registrarse usando",
+    "Sign up": "Registrarse",
     "Sign in with": "Iniciar sesión con",
 
     "Finish enabling two factor authentication.": "Finalice la habilitación de la autenticación de dos factores.",
@@ -244,8 +245,12 @@
     "Change your preferred language": "Cambia tu idioma preferido",
     "Admin": "Administrador",
     "Instructor": "Instructor",
-    "Full Stack Web Developer": "Desarrollador Web Full Stack"
-    
+    "Full Stack Web Developer": "Desarrollador Web Full Stack",
+    "by signing i agree to the": "por iniciar sesión acepto",
+    "terms and conditions": "términos y condiciones",
+    "privacy policy": "política de privacidad",
+    "Register Account": "Registrar Cuenta"
+
 
 
 }
