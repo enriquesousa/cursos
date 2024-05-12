@@ -169,7 +169,10 @@ class UserController extends Controller
 
     }
 
-
+    // FrontendAbout
+    public function FrontendAbout(){
+        return view('frontend.pages.about');
+    }
 
 
 }

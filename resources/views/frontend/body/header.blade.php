@@ -36,19 +36,19 @@
                                     <ul class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
 
                                         <li class="generic-list-item">
-                                            <a href="dashboard-settings.html">
+                                            <a href="{{ route('admin.login') }}">
                                                 <i class="la la-lock mr-1"></i> {{ __('Admin') }} {{ __('Login') }}
                                             </a>
                                         </li>
 
                                         <li class="generic-list-item">
-                                            <a href="dashboard-settings.html">
+                                            <a href="{{ route('instructor.login') }}">
                                                 <i class="la la-lock mr-1"></i> {{ __('Instructor') }} {{ __('Login') }}
                                             </a>
                                         </li>
 
                                         <li class="generic-list-item">
-                                            <a href="dashboard-settings.html">
+                                            <a href="{{ route('frontend.about') }}">
                                                 <i class="la la-info-circle mr-1"></i> {{ __('About') }}
                                             </a>
                                         </li>

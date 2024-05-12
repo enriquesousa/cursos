@@ -36,6 +36,8 @@ require __DIR__.'/auth.php';
 Route::get('/', [UserController::class, 'Index'])->name('home');
 Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.login');
 Route::get('/user/register', [UserController::class, 'UserRegister'])->name('user.register');
+Route::get('/frontend/about', [UserController::class, 'FrontendAbout'])->name('frontend.about');
+
 
 Route::get('/locale/{locale}', [LocalizationController::class, 'setLanguage'])->name('locale');
 
