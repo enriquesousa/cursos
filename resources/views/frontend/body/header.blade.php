@@ -22,6 +22,43 @@
                 <div class="col-lg-6">
                     <div class="header-widget d-flex flex-wrap align-items-center justify-content-end">
 
+                        <!-- Menu TJ Web -->
+                        <div class="shop-cart user-profile-cart mr-4">
+                            <ul>
+                                <li>
+
+                                    <!-- Botón en barra menu -->
+                                    <p class="shop-cart-btn d-flex align-items-center">
+                                        <!-- Estos iconos están en https://themewagon.github.io/Ready-Bootstrap-Dashboard/icons.html -->
+                                        <i class="la la-gear mr-1"></i>
+                                    </p>
+
+                                    <ul class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
+
+                                        <li class="generic-list-item">
+                                            <a href="dashboard-settings.html">
+                                                <i class="la la-lock mr-1"></i> {{ __('Admin') }} {{ __('Login') }}
+                                            </a>
+                                        </li>
+
+                                        <li class="generic-list-item">
+                                            <a href="dashboard-settings.html">
+                                                <i class="la la-lock mr-1"></i> {{ __('Instructor') }} {{ __('Login') }}
+                                            </a>
+                                        </li>
+
+                                        <li class="generic-list-item">
+                                            <a href="dashboard-settings.html">
+                                                <i class="la la-info-circle mr-1"></i> {{ __('About') }}
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </li>
+                            </ul>
+                        </div>
+
                         <!-- Banderas para idiomas -->
                         <div class="shop-cart mr-4">
                             <ul>

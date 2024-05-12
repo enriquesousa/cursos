@@ -95,9 +95,14 @@
             <span class="profile-desc">{{ formatPhoneNumber($profileData->phone) }}</span>
         </li>
 
-        <li>
+        {{-- <li>
             <span class="profile-name">Bio:</span>
             <span class="profile-desc">Hello! I am a Alex Smith, Washington area graphic designer with over 6 years of graphic design experience. I specialize in designing infographics, icons, brochures, and flyers.</span>
+        </li> --}}
+
+        <li>
+            <span class="profile-name">Bio:</span>
+            <span class="profile-desc">{{ $profileData->description }}</span>
         </li>
 
     </ul>

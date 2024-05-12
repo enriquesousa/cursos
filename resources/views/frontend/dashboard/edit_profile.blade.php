@@ -154,19 +154,28 @@
 
 {{-- Tabs | Profile, password, Change Email, Withdraw, Account --}}
 <ul class="nav nav-tabs generic-tab pb-30px" id="myTab" role="tablist">
+
     <li class="nav-item">
         <a class="nav-link active" id="edit-profile-tab" data-toggle="tab" href="#edit-profile" role="tab" aria-controls="edit-profile" aria-selected="false">
             {{ __('Profile') }}
         </a>
     </li>
+
     <li class="nav-item">
         <a class="nav-link" id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="password" aria-selected="true">
             {{ __('Password') }}
         </a>
     </li>
+
     <li class="nav-item">
         <a class="nav-link" id="change-email-tab" data-toggle="tab" href="#change-email" role="tab" aria-controls="change-email" aria-selected="false">
             {{ __('Change Email') }}
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" id="change-email-tab" data-toggle="tab" href="#change-language" role="tab" aria-controls="change-language" aria-selected="false">
+            {{ __('Change Language') }}
         </a>
     </li>
 
@@ -181,6 +190,7 @@
             {{ __('Account') }}
         </a>
     </li>
+
 </ul>
 
 {{-- Tabs | Contenido --}}
@@ -387,6 +397,50 @@
                     <button class="btn theme-btn">Change Email</button>
                 </div><!-- end input-box -->
             </form>
+        </div><!-- end setting-body -->
+    </div>
+    <!-- end tab-pane -->
+
+    {{-- Tab | Change Language --}}
+    <div class="tab-pane fade" id="change-language" role="tabpanel" aria-labelledby="change-language-tab">
+        <div class="setting-body">
+
+            <h3 class="fs-17 font-weight-semi-bold pb-4">{{ __('Change Language') }}</h3>
+
+            <p class="pb-4">{{ __('Change your preferred language') }}</p>
+
+            <form method="post" class="mb-40px" action="{{ route('user.update.change.language') }}">
+                @csrf
+    
+                {{-- Check que lenguaje prefiere usuario, campo language de la tabla users --}}
+                @php
+                    $locale = $profileData->language;
+                @endphp
+                {{-- @dd($locale) --}}
+            
+    
+                {{-- Check que lenguaje esta en la sesión --}}
+                {{-- @php
+                    $locale = App::getLocale();
+                @endphp --}}
+    
+                <input type="radio" name="lang" value="es" {{ $locale === 'es' ? 'checked' : '' }}>
+                <img src="{{ asset('backend/assets/flags/4x3/mx.svg') }}" alt="" height="15">
+                <label for="html">Español (Spanish)</label>
+                <br>
+    
+                <input type="radio" name="lang" value="en" {{ $locale === 'en' ? 'checked' : '' }}>
+                <img src="{{ asset('backend/assets/flags/4x3/us.svg') }}" alt="" height="15">
+                <label for="css">Inglés (English)</label>
+                <br>
+    
+                <button class="btn theme-btn mb-2 mt-4">Activar</button>
+    
+            </form>
+    
+            <div class="section-block"></div>
+            
+
         </div><!-- end setting-body -->
     </div>
     <!-- end tab-pane -->
