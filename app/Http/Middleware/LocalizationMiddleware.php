@@ -15,10 +15,26 @@ class LocalizationMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // Set Locale in this "Request"
-        $locale = $request->session()->get('locale') ?? 'es';
-        app()->setLocale($locale);
+        // Si no hay user login
+        if(! $request->user()) {
 
+            // Set Locale in this "Request" es español por defecto
+            $locale = $request->session()->get('locale') ?? 'es';
+            app()->setLocale($locale);
+
+            return $next($request);
+        }
+
+        // Si hay user login, get language from user
+        $language = $request->user()->language;
+ 
+        if (isset($language)) {
+            app()->setLocale($language);
+        }
+ 
         return $next($request);
+        
     }
+
+    
 }

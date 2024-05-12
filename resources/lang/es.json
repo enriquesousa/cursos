@@ -227,7 +227,21 @@
     "contact us": "contáctenos",
     "Email Address": "Correo electrónico",
     "Enter email address": "Introduzca la dirección de correo electrónico",
-    "Change Language": "Cambiar Idioma"
+    "Change Language": "Cambiar Idioma",
+    "Home": "Inicio",
+    "Pages": "Paginas",
+    "Login to Your Account": "Iniciar sesión en tu cuenta",
+    "Or": "O",
+    "Forgot Password?": "¿Olvidaste tu contraseña?",
+    "Forgot My Password?": "¿Olvidaste tu contraseña?",
+    "Do not have an account?": "¿No tienes una cuenta?",
+    "Sign Up": "Regístrate",
+    "My Courses": "Mis Cursos",
+    "My Quizzes": "Mis Cuestionarios",
+    "My Bookmarks": "Mis Favoritos",
+    "Messages": "Mensajes",
+    "Reviews": "Comentarios"
+
     
 
 }

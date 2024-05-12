@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->enum('role', ['admin', 'instructor', 'user'])->default('user');
             $table->enum('status', ['1', '0'])->default('1')->comment('1=active, 0=inactive');
+            $table->string('language')->nullable()->default('es');
             $table->text('description')->nullable();
 
             $table->rememberToken();

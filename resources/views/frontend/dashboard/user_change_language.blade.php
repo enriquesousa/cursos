@@ -7,10 +7,17 @@
         <form method="post" class="mb-40px" action="{{ route('user.update.change.language') }}">
             @csrf
 
-
+            {{-- Check que lenguaje prefiere usuario, campo language de la tabla users --}}
             @php
-                $locale = App::getLocale();
+                $locale = $profileData->language;
             @endphp
+            {{-- @dd($locale) --}}
+        
+
+            {{-- Check que lenguaje esta en la sesión --}}
+            {{-- @php
+                $locale = App::getLocale();
+            @endphp --}}
 
             <input type="radio" name="lang" value="es" {{ $locale === 'es' ? 'checked' : '' }}>
             <img src="{{ asset('backend/assets/flags/4x3/mx.svg') }}" alt="" height="15">

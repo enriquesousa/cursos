@@ -5,6 +5,8 @@
     <div class="header-top pr-150px pl-150px border-bottom border-bottom-gray py-1">
         <div class="container-fluid">
             <div class="row align-items-center">
+
+                <!-- Teléfono y correo -->
                 <div class="col-lg-6">
                     <div class="header-widget">
                         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14">
@@ -16,15 +18,64 @@
                         </ul>
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
+
                 <div class="col-lg-6">
                     <div class="header-widget d-flex flex-wrap align-items-center justify-content-end">
+
+                        <!-- Banderas para idiomas -->
+                        <div class="shop-cart mr-4">
+                            <ul>
+                                <li>
+                                    <p class="shop-cart-btn d-flex align-items-center">
+                                        
+                                        @if (App::getLocale() == 'en')
+                                            <img class="" src="{{ asset('backend/assets/flags/4x3/us.svg') }}" alt="Header Language" height="15">    
+                                        @else
+                                            <img class="" src="{{ asset('backend/assets/flags/4x3/mx.svg') }}" alt="Header Language" height="15">    
+                                        @endif
+                                        
+                                    </p>
+                                    <ul class="cart-dropdown-menu">
+
+                                        <li class="media media-card">
+                                            <a href="{{ url('locale/en') }}" class="media-img">
+                                                <img src="{{ asset('backend/assets/flags/4x3/us.svg') }}" alt="Cart image" height="15">
+                                            </a>
+
+                                            <div class="media-body">
+                                                <h5>
+                                                    <a href="{{ url('locale/en') }}">Translate to English</a>
+                                                </h5>
+                                            </div>
+                                        </li>
+
+                                        <li class="media media-card">
+                                            <a href="{{ url('locale/es') }}" class="media-img">
+                                                <img src="{{ asset('backend/assets/flags/4x3/mx.svg') }}" alt="Cart image" height="15">
+                                            </a>
+
+                                            <div class="media-body">
+                                                <h5>
+                                                    <a href="{{ url('locale/es') }}">Traducir a Español</a>
+                                                </h5>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Dark Mode Button -->
                         <div class="theme-picker d-flex align-items-center">
+
                             <button class="theme-picker-btn dark-mode-btn" title="Dark mode">
                                 <svg id="moon" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
                                     <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                                 </svg>
                             </button>
+
                             <button class="theme-picker-btn light-mode-btn" title="Light mode">
                                 <svg id="sun" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -39,7 +90,10 @@
                                     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
                                 </svg>
                             </button>
+
                         </div>
+
+                        <!-- Botones de dashboard y logout o Iniciar Sesión o Registrarse -->
                         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
 
                             {{-- Si el user ya inicio sesión, presenta las opciones de dashboard y logout --}}
@@ -89,8 +143,10 @@
                             
 
                         </ul>
+
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
+
             </div><!-- end row -->
         </div><!-- end container-fluid -->
     </div><!-- end header-top -->

@@ -136,12 +136,19 @@ class UserController extends Controller
     // ChangeLocaleLanguage
     public function UserViewChangeLanguage()
     {
-        return view('frontend.dashboard.user_change_language');
+        $id = Auth::user()->id;
+        $profileData = User::findOrFail($id);
+        return view('frontend.dashboard.user_change_language', compact('profileData'));
     }
 
     // UserUpdateChangeLanguage
     public function UserUpdateChangeLanguage(Request $request)
     {
+        // Guardar el idioma en la base de datos
+        $id = Auth::user()->id;
+        $data = User::find($id);
+        $data->language = $request->lang;
+        $data->save();
 
         $lenguaje = $request->lang;
         //dd($lenguaje);
