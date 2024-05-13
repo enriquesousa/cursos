@@ -38,9 +38,7 @@ Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.logi
 Route::get('/user/register', [UserController::class, 'UserRegister'])->name('user.register');
 Route::get('/frontend/about', [UserController::class, 'FrontendAbout'])->name('frontend.about');
 
-
 Route::get('/locale/{locale}', [LocalizationController::class, 'setLanguage'])->name('locale');
-
 
 // User con login
 Route::middleware('auth')->group(function () {
