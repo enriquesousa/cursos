@@ -85,13 +85,21 @@
                                 </div>
                             </div><!-- end input-box -->
 
+                            <!-- Remember Me, Forgot Password & Login Button and Register-->
                             <div class="btn-box">
                                 <div class="d-flex align-items-center justify-content-between pb-4">
+
+                                    <!-- Remember Me -->
                                     <div class="custom-control custom-checkbox fs-15">
-                                        <input type="checkbox" class="custom-control-input" id="rememberMeCheckbox" required>
+                                        <input type="checkbox" class="custom-control-input" id="rememberMeCheckbox" name="remember" required="">
                                         <label class="custom-control-label custom--control-label" for="rememberMeCheckbox">{{ __('Remember Me') }}</label>
                                     </div><!-- end custom-control -->
-                                    <a href="recover.html" class="btn-text">{{ __('Forgot My Password?') }}</a>
+
+                                    <!-- Forgot Password -->
+                                    <a href="{{ route('password.request') }}" class="btn-text">
+                                        {{ __('Forgot My Password?') }}
+                                    </a>
+
                                 </div>
 
                                 <!-- Login Button -->
@@ -100,9 +108,15 @@
                                     <i class="la la-arrow-right icon ml-1"></i>
                                 </button>
 
-                                <p class="fs-14 pt-2">{{ __('Do not have an account?') }} <a href="sign-up.html" class="text-color hover-underline">{{ __('Sign Up') }}</a></p>
+                                <!-- register -->
+                                <p class="fs-14 pt-2">{{ __('Do not have an account?') }} 
+                                    <a href="{{ route('user.register') }}" class="text-color hover-underline">
+                                        {{ __('Sign Up') }}
+                                    </a>
+                                </p>
 
                             </div><!-- end btn-box -->
+
                         </form>
 
                     </div><!-- end card-body -->
