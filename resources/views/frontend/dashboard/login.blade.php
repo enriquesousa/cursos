@@ -58,11 +58,14 @@
                                 <div class="icon-element icon-element-md fs-25 shadow-sm">{{ __('Or') }}</div>
                             </div>
 
-                            {{-- Email --}}
+                            {{-- loginName --}}
                             <div class="input-box">
                                 <label class="label-text">{{ __('Email/Username/Phone') }}</label>
                                 <div class="form-group">
-                                    <input class="form-control form--control" id="email" type="email" name="email" placeholder="{{ __('Email/Username/Phone') }}">
+                                    <input class="form-control form--control @error('loginName') is-invalid @enderror" id="loginName" type="text" name="loginName" value="{{ old('loginName') }}" placeholder="{{ __('Email/Username/Phone') }}" required="" autofocus>
+                                    @error('loginName')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                     <span class="la la-user input-icon"></span>
                                 </div>
                             </div><!-- end input-box -->

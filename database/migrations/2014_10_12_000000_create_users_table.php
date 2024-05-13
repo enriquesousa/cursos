@@ -20,7 +20,7 @@ return new class extends Migration
             
             $table->string('username')->unique()->nullable();
             $table->string('photo')->nullable();
-            $table->string('phone')->nullable();
+            $table->string('phone')->unique()->nullable();
             $table->string('address')->nullable();
             $table->enum('role', ['admin', 'instructor', 'user'])->default('user');
             $table->enum('status', ['1', '0'])->default('1')->comment('1=active, 0=inactive');
