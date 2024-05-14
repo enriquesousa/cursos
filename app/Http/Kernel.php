@@ -39,6 +39,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
 
             \App\Http\Middleware\LocalizationMiddleware::class,
+            \App\Http\Middleware\LastInteraction::class,
             
         ],
 
@@ -69,5 +70,6 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'last.interaction' => \App\Http\Middleware\LastInteraction::class,
     ];
 }

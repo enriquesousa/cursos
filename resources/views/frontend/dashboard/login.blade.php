@@ -47,11 +47,29 @@
                             @csrf
 
 
+                            {{-- Inicia sesión con Redes Sociales --}}
                             <div class="d-flex flex-wrap align-items-center pb-4">
-                                <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-google mr-2"></i>Google</button>
-                                <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-github mr-2"></i>Github</button>
-                                {{-- <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-facebook mr-2"></i>Facebook</button> --}}
-                                {{-- <button class="btn theme-btn flex-grow-1 mx-2 mb-2"><i class="la la-twitter mr-2"></i>Twitter</button> --}}
+
+                                <button href="/auth/google/login/redirect" class="btn theme-btn flex-grow-1 mx-2 mb-2">
+                                    <i class="la la-google mr-2"></i>
+                                    Google
+                                </button>
+
+                                <button href="/auth/github/login/redirect" class="btn theme-btn flex-grow-1 mx-2 mb-2">
+                                    <i class="la la-github mr-2"></i>
+                                    Github
+                                </button>
+
+                                {{-- <button class="btn theme-btn flex-grow-1 mx-2 mb-2">
+                                    <i class="la la-facebook mr-2"></i>
+                                    Facebook
+                                </button> --}}
+
+                                {{-- <button class="btn theme-btn flex-grow-1 mx-2 mb-2">
+                                    <i class="la la-twitter mr-2"></i>
+                                    Twitter
+                                </button> --}}
+
                             </div>
 
                             <div class="text-center pt-3 pb-4">
@@ -75,7 +93,7 @@
                                 <label class="label-text">{{ __('Password') }}</label>
                                 <div class="input-group mb-3">
                                     <span class="la la-lock input-icon"></span>
-                                    <input class="form-control form--control password-field" id="password" type="password" name="password" placeholder="{{ __('Password') }}">
+                                    <input class="form-control form--control password-field" id="password" type="password" name="password" placeholder="{{ __('Password') }}" required="">
                                     <div class="input-group-append">
                                         <button class="btn theme-btn theme-btn-transparent toggle-password" type="button">
                                             <svg class="eye-on" xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 0 24 24" width="22px" fill="#7f8897"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z"/></svg>

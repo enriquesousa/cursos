@@ -19,16 +19,21 @@
 
         <div class="media-body">
             <h2 class="section__title fs-30">Hola, {{ $profileData->name }}</h2>
+
             <div class="rating-wrap d-flex align-items-center pt-2">
-                <div class="review-stars">
+                
+                {{-- <div class="review-stars">
                     <span class="rating-number">4.4</span>
                     <span class="la la-star"></span>
                     <span class="la la-star"></span>
                     <span class="la la-star"></span>
                     <span class="la la-star"></span>
                     <span class="la la-star-o"></span>
-                </div>
-                <span class="rating-total pl-1">(20,230)</span>
+                </div> --}}
+                {{-- <span class="rating-total pl-1">(20,230)</span> --}}
+
+                <span class="rating-total pl-1">Ultima Iteración: {{ Carbon\Carbon::parse($profileData->last_interacted)->diffForHumans() }}</span>
+
             </div><!-- end rating-wrap -->
         </div><!-- end media-body -->
 

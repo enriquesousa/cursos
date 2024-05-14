@@ -35,17 +35,23 @@
 
                                     <ul class="cart-dropdown-menu after-none p-0 notification-dropdown-menu">
 
-                                        <li class="generic-list-item">
-                                            <a href="{{ route('admin.login') }}">
-                                                <i class="la la-lock mr-1"></i> {{ __('Admin') }} {{ __('Login') }}
-                                            </a>
-                                        </li>
+                                        
+                                        @auth
 
-                                        <li class="generic-list-item">
-                                            <a href="{{ route('instructor.login') }}">
-                                                <i class="la la-lock mr-1"></i> {{ __('Instructor') }} {{ __('Login') }}
-                                            </a>
-                                        </li>
+                                        @else
+                                            <li class="generic-list-item">
+                                                <a href="{{ route('admin.login') }}">
+                                                    <i class="la la-lock mr-1"></i> {{ __('Admin') }} {{ __('Login') }}
+                                                </a>
+                                            </li>
+
+                                            <li class="generic-list-item">
+                                                <a href="{{ route('instructor.login') }}">
+                                                    <i class="la la-lock mr-1"></i> {{ __('Instructor') }} {{ __('Login') }}
+                                                </a>
+                                            </li>
+                                        @endauth
+                                        
 
                                         <li class="generic-list-item">
                                             <a href="{{ route('frontend.about') }}">
@@ -145,6 +151,10 @@
                                         </svg> 
                                         {{ __('Dashboard') }}
                                     </a>
+                                </li>
+
+                                <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray">
+                                    {{ Auth::user()->username }}
                                 </li>
 
                                 {{-- Logout --}}
