@@ -20,7 +20,7 @@ use App\Http\Controllers\LocalizationController;
 
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.index');
-})->middleware(['auth.session'])->withoutMiddleware('last.interaction')->name('dashboard');
+})->middleware(['auth.session', 'verified'])->withoutMiddleware('last.interaction')->name('dashboard');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -45,7 +45,7 @@ Route::get('/frontend/about', [UserController::class, 'FrontendAbout'])->name('f
 Route::get('/locale/{locale}', [LocalizationController::class, 'setLanguage'])->name('locale');
 
 // User con login
-Route::middleware('auth')->group(function () {
+Route::middleware('auth.session')->group(function () {
 
     Route::get('/user/view/profile', [UserController::class, 'UserViewProfile'])->name('user.view.profile');
     Route::get('/user/edit/profile', [UserController::class, 'UserEditProfile'])->name('user.edit.profile');
@@ -64,7 +64,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
 // Admin Routes
-Route::middleware(['auth', 'roles:admin'])->group(function () {
+Route::middleware(['auth.session', 'roles:admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
     Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
     Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
@@ -77,7 +77,7 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
 
 // Instructor con login Routes
-Route::middleware(['auth', 'roles:instructor'])->group(function () {
+Route::middleware(['auth.session', 'roles:instructor'])->group(function () {
     Route::get('/instructor/dashboard', [InstructorController::class, 'InstructorDashboard'])->name('instructor.dashboard');
     Route::get('/instructor/logout', [InstructorController::class, 'InstructorLogout'])->name('instructor.logout');
     Route::get('/instructor/profile', [InstructorController::class, 'InstructorProfile'])->name('instructor.profile');

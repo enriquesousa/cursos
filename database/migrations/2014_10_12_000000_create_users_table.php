@@ -29,6 +29,9 @@ return new class extends Migration
             $table->string('language')->nullable()->default('es');
             $table->text('description')->nullable();
             $table->timestamp('last_interacted')->nullable();
+            
+            $table->datetime('last_login_at')->nullable();
+            $table->string('last_login_ip')->nullable();
 
             $table->rememberToken();
             $table->timestamps();

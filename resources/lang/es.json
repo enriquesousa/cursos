@@ -259,7 +259,9 @@
 
     "Last Interacted": "Última Interacción",
 
-    "Session expired! Please login again.": "Sesión caducada! Por favor inicia sesión de nuevo."
+    "Session expired! Please login again.": "Sesión caducada! Por favor inicia sesión de nuevo.",
+    "Time to logout": "Tiempo para cerrar sesión",
+    "Last login": "Último inicio de sesión"
 
 
 

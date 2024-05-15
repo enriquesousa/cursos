@@ -13,32 +13,37 @@
     {{-- Imagen y Nombre del Usuario --}}
     <div class="media media-card align-items-center">
 
+        <!-- foto de perfil -->
         <div class="media-img media--img media-img-md rounded-full">
             <img class="rounded-full" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg') }}" alt="Student thumbnail image">
         </div>
 
+        <!-- Hola, nombre de user -->
         <div class="media-body">
             <h2 class="section__title fs-30">Hola, {{ $profileData->name }}</h2>
+        </div><!-- end media-body -->
 
-            <div class="rating-wrap d-flex align-items-center pt-2">
+        <!-- Última Interacción, Tiempo restante para logout, Ultimo Login y ip -->
+        <div class="ml-5">
 
-                {{-- <div class="review-stars">
-                    <span class="rating-number">4.4</span>
-                    <span class="la la-star"></span>
-                    <span class="la la-star"></span>
-                    <span class="la la-star"></span>
-                    <span class="la la-star"></span>
-                    <span class="la la-star-o"></span>
-                </div> --}}
-                {{-- <span class="rating-total pl-1">(20,230)</span> --}}
-
-                <span class="rating-total pl-1">{{ __('Last Interacted') }}: {{ Carbon\Carbon::parse($profileData->last_interacted)->diffForHumans() }}</span>
-
-            </div><!-- end rating-wrap -->
+            <!-- Última Interacción -->
+            <div class="d-block fs-14 lh-20">
+                <span class="rating-total pl-1"><strong>{{ __('Last Interacted') }}:</strong> {{ Carbon\Carbon::parse($profileData->last_interacted)->diffForHumans() }}</span>
+            </div>
 
             <!-- Tiempo restante para logout -->
-            <div>
-                <span class="rating-total pl-1">Tiempo para logout: {{  Config::get('session.lifetime') }} Minutos</span>
+            <div class="text-sm">
+                <span class="d-block fs-14 lh-20"><strong>{{ __('Time to logout') }}:</strong> {{  Config::get('session.lifetime') }} Minutos </span>
+            </div>
+
+            <!-- Ultimo Login -->
+            <div class="text-sm">
+                <span class="d-block fs-14 lh-20"><strong>{{ __('Last login') }}:</strong> {{ Carbon\Carbon::parse($profileData->last_login_at)->diffForHumans() }}</span>
+            </div>
+
+            <!-- Desde IP -->
+            <div class="text-sm">
+                <span class="d-block fs-14 lh-20"><strong>Desde IP</strong>: {{ $profileData->last_login_ip }}</span>
             </div>
 
         </div><!-- end media-body -->
