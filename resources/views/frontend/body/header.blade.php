@@ -22,7 +22,7 @@
                 <div class="col-lg-6">
                     <div class="header-widget d-flex flex-wrap align-items-center justify-content-end">
 
-                        <!-- Menu TJ Web -->
+                        <!-- Gear Menu TJ Web -->
                         <div class="shop-cart user-profile-cart mr-4">
                             <ul>
                                 <li>

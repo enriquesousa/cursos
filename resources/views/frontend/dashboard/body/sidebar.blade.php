@@ -13,6 +13,7 @@
 
 <ul class="generic-list-item off-canvas-menu-list off--canvas-menu-list pt-35px">
 
+    <!-- Dashboard -->
     <li class="page-active">
         <a href="{{ route('dashboard') }}">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px">
@@ -23,7 +24,7 @@
         </a>
     </li>
 
-
+    <!-- Perfil -->
     <li>
         <a href="{{ route('user.view.profile') }}">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px">
@@ -34,6 +35,7 @@
         </a>
     </li>
 
+    <!-- Editar Perfil -->
     <li>
         <a href="{{ route('user.edit.profile') }}">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px"><path d="M0 0h24v24H0V0z" fill="none"/>
@@ -43,6 +45,7 @@
         </a>
     </li>
 
+    <!-- Cambiar contraseña -->
     <li>
         <a href="{{ route('user.change.password') }}">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px">
@@ -54,6 +57,7 @@
         </a>
     </li>
 
+    <!-- Idioma -->
     <li>
         <a href="{{ route('user.view.change.language') }}">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px">
@@ -64,7 +68,7 @@
         </a>
     </li>
 
-
+    <!-- Cursos -->
     <li>
         <a href="dashboard-courses.html">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px">
@@ -173,8 +177,15 @@
         </a>
     </li> --}}
 
+    <!-- Acerca de -->
+    <li>
+        <a href="{{ route('user.view.about') }}">
+            <i class="la la-question mr-1"></i> 
+            {{ __('About') }}
+        </a>
+    </li>
     
-
+    <!-- Salir -->
     <li>
         <a href="{{ route('user.logout') }}">
             <svg class="mr-2" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"></path></svg>

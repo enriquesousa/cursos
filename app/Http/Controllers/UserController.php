@@ -174,5 +174,12 @@ class UserController extends Controller
         return view('frontend.pages.about');
     }
 
+    // UserViewAbout
+    public function UserViewAbout(){
+        $id = Auth::user()->id;
+        $profileData = User::findOrFail($id);
+        return view('frontend.dashboard.view_about', compact('profileData'));
+    }
+
 
 }

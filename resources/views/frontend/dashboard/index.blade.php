@@ -7,7 +7,7 @@
 @endphp
 
 
-{{-- breadcrumb-content | Imagen y Nombre del Usuario --}}
+{{-- breadcrumb-content | Imagen y Nombre del Usuario | Última Interacción, Tiempo restante para logout, Ultimo Login y ip --}}
 <div class="breadcrumb-content d-flex flex-wrap align-items-center justify-content-between mb-5">
 
     {{-- Imagen y Nombre del Usuario --}}
@@ -24,7 +24,7 @@
         </div><!-- end media-body -->
 
         <!-- Última Interacción, Tiempo restante para logout, Ultimo Login y ip -->
-        <div class="ml-5">
+        {{-- <div class="ml-5">
 
             <!-- Última Interacción -->
             <div class="d-block fs-14 lh-20">
@@ -33,7 +33,12 @@
 
             <!-- Tiempo restante para logout -->
             <div class="text-sm">
-                <span class="d-block fs-14 lh-20"><strong>{{ __('Time to logout') }}:</strong> {{  Config::get('session.lifetime') }} Minutos </span>
+                @php
+                    $timeLeft = Config::get('session.lifetime') - Carbon\Carbon::parse($profileData->last_interacted)->diffInMinutes();
+                    $minutes = $timeLeft;
+                    $hours = intdiv($minutes, 60).'h '. ($minutes % 60) . 'min';
+                @endphp
+                <span class="d-block fs-14 lh-20"><strong>{{ __('Time to logout') }}:</strong> {{  $hours }}</span>
             </div>
 
             <!-- Ultimo Login -->
@@ -46,7 +51,8 @@
                 <span class="d-block fs-14 lh-20"><strong>Desde IP</strong>: {{ $profileData->last_login_ip }}</span>
             </div>
 
-        </div><!-- end media-body -->
+        </div> --}}
+        <!-- end media-body -->
 
     </div>
     <!-- end media -->

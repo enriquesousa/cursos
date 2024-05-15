@@ -37,12 +37,11 @@ require __DIR__.'/auth.php';
 */
 
 // User sin login
-Route::get('/', [UserController::class, 'Index'])->name('home');
-Route::get('/user/login', [UserController::class, 'UserLogin'])->name('user.login');
-Route::get('/user/register', [UserController::class, 'UserRegister'])->name('user.register');
-Route::get('/frontend/about', [UserController::class, 'FrontendAbout'])->name('frontend.about');
-
-Route::get('/locale/{locale}', [LocalizationController::class, 'setLanguage'])->name('locale');
+Route::get('/', [UserController::class, 'Index'])->withoutMiddleware('last.interaction')->name('home');
+Route::get('/user/login', [UserController::class, 'UserLogin'])->withoutMiddleware('last.interaction')->name('user.login');
+Route::get('/user/register', [UserController::class, 'UserRegister'])->withoutMiddleware('last.interaction')->name('user.register');
+Route::get('/frontend/about', [UserController::class, 'FrontendAbout'])->withoutMiddleware('last.interaction')->name('frontend.about');
+Route::get('/locale/{locale}', [LocalizationController::class, 'setLanguage'])->withoutMiddleware('last.interaction')->name('locale');
 
 // User con login
 Route::middleware('auth.session')->group(function () {
@@ -57,6 +56,7 @@ Route::middleware('auth.session')->group(function () {
     Route::get('/user/view/change/language', [UserController::class, 'UserViewChangeLanguage'])->name('user.view.change.language');
     Route::post('/user/update/change/language', [UserController::class, 'UserUpdateChangeLanguage'])->name('user.update.change.language');
 
+    Route::get('/user/view/about', [UserController::class, 'UserViewAbout'])->withoutMiddleware('last.interaction')->name('user.view.about');
 });
 
 

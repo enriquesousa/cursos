@@ -386,16 +386,19 @@
 
                                                             <li><div class="section-block"></div></li>
 
+                                                            <!-- Acerca de -->
                                                             <li>
-                                                                <a href="#">
-                                                                    <i class="la la-question mr-1"></i> Help
+                                                                <a href="{{ route('user.view.about') }}">
+                                                                    <i class="la la-question mr-1"></i> 
+                                                                    {{ __('About') }}
                                                                 </a>
                                                             </li>
 
+                                                            <!-- Salir -->
                                                             <li>
                                                                 <a href="{{ route('user.logout') }}">
                                                                     <i class="la la-power-off mr-1"></i> 
-                                                                    Salir
+                                                                    {{ __('Logout') }}
                                                                 </a>
                                                             </li>
 
