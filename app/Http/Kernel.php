@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\CheckSession;
 use App\Http\Middleware\LocalizationMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -40,6 +41,7 @@ class Kernel extends HttpKernel
 
             \App\Http\Middleware\LocalizationMiddleware::class,
             \App\Http\Middleware\LastInteraction::class,
+            \App\Http\Middleware\CheckSession::class,
             
         ],
 
@@ -70,6 +72,9 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
         'last.interaction' => \App\Http\Middleware\LastInteraction::class,
+        'sessionChecker' => \App\Http\Middleware\CheckSession::class,
+        
     ];
 }

@@ -21,7 +21,7 @@
             <h2 class="section__title fs-30">Hola, {{ $profileData->name }}</h2>
 
             <div class="rating-wrap d-flex align-items-center pt-2">
-                
+
                 {{-- <div class="review-stars">
                     <span class="rating-number">4.4</span>
                     <span class="la la-star"></span>
@@ -32,9 +32,15 @@
                 </div> --}}
                 {{-- <span class="rating-total pl-1">(20,230)</span> --}}
 
-                <span class="rating-total pl-1">Ultima Iteración: {{ Carbon\Carbon::parse($profileData->last_interacted)->diffForHumans() }}</span>
+                <span class="rating-total pl-1">{{ __('Last Interacted') }}: {{ Carbon\Carbon::parse($profileData->last_interacted)->diffForHumans() }}</span>
 
             </div><!-- end rating-wrap -->
+
+            <!-- Tiempo restante para logout -->
+            <div>
+                <span class="rating-total pl-1">Tiempo para logout: {{  Config::get('session.lifetime') }} Minutos</span>
+            </div>
+
         </div><!-- end media-body -->
 
     </div>

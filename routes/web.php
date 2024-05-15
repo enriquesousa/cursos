@@ -14,9 +14,13 @@ use App\Http\Controllers\LocalizationController;
 // })->name('home');
 
 
+// Route::get('/dashboard', function () {
+//     return view('frontend.dashboard.index');
+// })->middleware(['auth', 'verified'])->withoutMiddleware('last.interaction')->name('dashboard');
+
 Route::get('/dashboard', function () {
     return view('frontend.dashboard.index');
-})->middleware(['auth', 'verified'])->withoutMiddleware('last.interaction')->name('dashboard');
+})->middleware(['auth.session'])->withoutMiddleware('last.interaction')->name('dashboard');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

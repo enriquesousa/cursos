@@ -109,7 +109,7 @@
 
                                     <!-- Remember Me -->
                                     <div class="custom-control custom-checkbox fs-15">
-                                        <input type="checkbox" class="custom-control-input" id="rememberMeCheckbox" name="remember" required="">
+                                        <input type="checkbox" class="custom-control-input" id="rememberMeCheckbox" name="remember" required="" checked>
                                         <label class="custom-control-label custom--control-label" for="rememberMeCheckbox">{{ __('Remember Me') }}</label>
                                     </div><!-- end custom-control -->
 
